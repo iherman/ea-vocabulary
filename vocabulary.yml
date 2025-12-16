@@ -1,0 +1,106 @@
+# formally, the @context is not part of the annotation object...
+class:
+  - id: Annotation
+    upper_value: oa:Annotation
+    # required dcterms:created, dcterms:modified, dcterm:creator
+    # not to be used, as:generator, dcterms:issued
+
+  - id: Creator
+    upper_value: owlUnion(schema:Person, schema:Organization)
+
+  - id: Target
+
+  - id: Body
+    upper_value: oa:TextualBody
+
+  - id: AnnotationSet
+
+  - id: About
+
+  - id: Generator
+
+
+property:
+
+  - id: target
+    upper_value: oa:hasTarget
+    domain: Annotation
+    range: Target
+
+  - id: body
+    upper_value: oa:hasBody
+    domain: Annotation
+    range: Body
+
+  - id: motivation
+    upper_value: oa:motivatedBy
+    range: string
+
+  - id: name
+    upper_value: schema:name
+
+  - id: homepage
+    domain: Generator
+    range: URL
+
+  - id: about
+    domain: AnnotationSet
+    range: About
+
+  - id: generator
+    domain: AnnotationSet
+    range: Generator
+
+  - id: generated
+    domain: AnnotationSet
+    range: xsd:DateTime
+
+  - id: title
+    domain: AnnotationSet
+    range: string
+
+  - id: items
+    domain: AnnotationSet
+    range: Annotation
+    container: List
+
+  - id: source
+    upper_value: oa:hasSource
+    domain: Target
+
+  - id: meta
+    domain: Target
+    range: meta
+
+  - id: selector
+    upper_value: oa:hasSelector
+    domain: Target
+
+  - id: format
+    upper_value: dc:format
+
+  - id: color
+    domain: Body
+    range: Union of color values
+
+  - id: highlight
+    domain: Body
+    range: union of highlight values
+
+  - id: keyword
+    domain: Body
+    range: string
+
+  # language is an alias to @language
+  # textDirection is an alias to @direction
+
+
+
+
+
+
+
+
+
+
+
