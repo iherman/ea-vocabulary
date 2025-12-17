@@ -101,15 +101,6 @@ ea:meta a rdf:Property, owl:ObjectProperty ;
     vs:term_status "stable" ;
 .
 
-ea:value a rdf:Property, owl:DatatypeProperty ;
-    rdfs:subPropertyOf rdf:value ;
-    rdfs:domain ea:Body ;
-    rdfs:range xsd:string ;
-    rdfs:label "Value" ;
-    rdfs:isDefinedBy <https://w3c.github.io/epub-specs/epub34/annotations/#1-4-body>, <https://www.w3.org/ns/epub/annotation/vocabulary#> ;
-    vs:term_status "stable" ;
-.
-
 ea:color a rdf:Property, owl:DatatypeProperty ;
     rdfs:domain ea:Body ;
     rdfs:range xsd:string ;
@@ -214,7 +205,6 @@ ea:Meta a rdfs:Class ;
         ea:source,
         ea:target,
         ea:title,
-        ea:value,
         oa:hasSelector ;
 .
 

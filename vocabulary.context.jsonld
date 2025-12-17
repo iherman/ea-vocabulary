@@ -40,10 +40,6 @@
       "@id": "https://www.w3.org/ns/epub/annotation/vocabulary#Body",
       "@context": {
         "@protected": true,
-        "value": {
-          "@id": "https://www.w3.org/ns/epub/annotation/vocabulary#value",
-          "@type": "http://www.w3.org/2001/XMLSchema#string"
-        },
         "color": {
           "@id": "https://www.w3.org/ns/epub/annotation/vocabulary#color",
           "@type": "http://www.w3.org/2001/XMLSchema#string"
