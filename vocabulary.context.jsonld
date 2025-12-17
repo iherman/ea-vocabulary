@@ -4,6 +4,8 @@
     "language": "@language",
     "direction": "@direction",
     "id": "@id",
+    "type": "@type",
+    "value": "@value",
     "Annotation": {
       "@id": "https://www.w3.org/ns/epub/annotation/vocabulary#Annotation",
       "@context": {

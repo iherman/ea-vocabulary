@@ -3,6 +3,8 @@ json_ld:
         "language"  : "@language"
         "direction" : "@direction"
         "id"        : "@id"
+        "type"      : "@type"
+        "value"     : "@value"
 
 vocab:
     - id: ea
