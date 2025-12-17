@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>EPUB Annotations vocabulary</title>
+    <script class="remove" src="https://www.w3.org/Tools/respec/respec-w3c"></script>
+    <script>
+        function remove_status_remark() {
+            const sotd = document.getElementById("sotd");
+            const p = sotd.getElementsByTagName('p')[0];
+            sotd.removeChild(p);
+        }
+
+        // Note: The vocabulary URL must be adapted for the given environment!!!!
+        function massageSVGLinks(utils, content, url) {
+            const retval = content
+                .replace(/xlink:href/g, 'href')
+                .replace(/href="https:\/\/w3id.org\/security#/g, 'href="#');
+
+            return retval;
+        }
+
+    </script>
+    <script class="remove">
+        var respecConfig = {
+            localBiblio: {
+                "VC-DATA-MODEL": {
+                    title: "Verifiable Credentials Data Model v2.0",
+                    href: "https://www.w3.org/TR/vc-data-model-2.0/",
+                    authors: [
+                        "Manu Sporny", "Grant Noble", "Dave Longley",
+                        "Daniel C. Burnett", "Brent Zundel", "Kyle Den Hartog",
+                        "Orie Steel", "Michael B. Jones", "Gabe Cohen"
+                    ],
+                    publisher: "W3C"
+                }
+            },
+            specStatus: "base",
+            shortName: "2018/credentials/",
+            thisVersion: "https://www.w3.org/2018/credentials/",
+            doJsonLd: true,
+            editors: [{
+                name: "Ivan Herman",
+                url: "https://www.w3.org/People/Ivan/",
+                company: "W3C",
+                w3cid: 7382,
+                orcid: "0000-0003-0782-2704",
+                companyURL: "https://www.w3.org",
+                note: "v2.0"
+            }, {
+                name: "Laurent Le Meur",
+                company: "EDRLab",
+                companyURL: "https://www.edrlab.org",
+                "w3cid": 91888
+            }],
+            alternateFormats: [{
+                    uri: "vocabulary.ttl",
+                    label: "Turtle"
+                },
+                {
+                    uri: "vocabulary.jsonld",
+                    label: "JSON-LD"
+                }
+            ],
+            postProcess: [remove_status_remark],
+            inlineCSS: true,
+            doRDFa: false,
+            noIDLIn: true,
+            noLegacyStyle: false
+        };
+
+    </script>
+    <style type="text/css">
+        dl.terms dt {
+            float: left;
+            clear: left;
+            width: 10vw;
+        }
+
+        dl.terms dd {
+            margin-left: 15vw;
+        }
+
+        dl.terms dd:after {
+            content: '';
+            display: block;
+            clear: both;
+            margin-bottom: 5px;
+        }
+
+        table.rdfs-definition td {
+            vertical-align: top;
+            margin-right: 2em;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+        /* code {
+        color: red;
+      } */
+
+        .term_definitions section {
+            border-bottom-style: solid;
+            border-bottom-width: 1px;
+            border-bottom-color: darkgrey;
+        }
+
+        .annoy {
+            background: hsla(40, 100%, 50%, 0.95);
+            color: black;
+            padding: .75em 1em;
+            border: red;
+            border-style: solid none;
+            box-shadow: 0 2px 8px black;
+            text-align: center;
+        }
+
+        details.desc {
+            margin-top: -2.5rem !important;
+            margin-left: 3rem !important;
+        }
+
+        details.explanation,
+        details.desc {
+            background-color: rgb(245, 245, 245);
+            border-left: 0.3em solid rgb(200, 200, 200);
+            padding: 0.3em;
+        }
+
+        details.explanation>summary,
+        details.desc>summary {
+            font-size: small;
+            text-align: left;
+            font-weight: normal !important;
+            font-style: italic;
+        }
+
+        figure svg {
+            max-width: 100%;
+            margin: auto;
+            height: auto;
+        }
+
+    </style>
+    <link href="vocabulary.jsonld" rel="alternate" type="application/ld+json">
+    <link href="vocabulary.ttl" rel="alternate" type="text/turtle">
+</head>
+
+<body>
+    <section id="abstract">
+        <p>This document describes the <span property="dc:title" id="ontology_title"></span>, i.e.,
+            the <span property="dc:description" id="description">RDFS [[RDF-SCHEMA]] vocabulary used by the EPUB Annotation, as a profile of the W3C Web Annotation
+                vocabulary</span>.
+        </p>
+        <p>Alternate versions of the vocabulary definition exist in
+            <a rel="alternate" id="alt-turtle" href="vocabulary.ttl">Turtle</a> and
+            <a rel="alternate" id="alt-jsonld" href="vocabulary.jsonld">JSON-LD</a>.
+        </p>
+        <dl>
+            <dt>Published:</dt>
+            <dd><time property="dc:date" id="time">2025-12-17</time></dd>
+            <dt>Version Info:</dt>
+            <dd>1.0</dd>
+            <dt id="see_also">See Also: <a href="https://w3c.github.io/epub-specs/epub34/annotations/">https://w3c.github.io/epub-specs/epub34/annotations/</a></dt>
+        </dl>
+    </section>
+    <section id="sotd">
+        <p>
+            This vocabulary has been defined by the <a href="https://www.w3.org/groups/wg/pm/">W3C Publishing Maintenance Working Group</a> and provides
+            the official RDFS vocabulary for <a href="https://w3c.github.io/epub-specs/epub34/annotations/">EPUB Annotations 3.4</a>.
+            Comments regarding this document are welcome. Please file issues
+            directly on <a href="https://github.com/w3c/epub-specs/">GitHub</a>.
+        </p>
+    </section>
+    <section id="conformance">
+        <h2>Specification of terms</h2>
+
+
+    </section>
+    <section>
+        <h2>Namespaces</h2>
+        <p>This specification makes use of the following namespaces:</p>
+        <dl class="terms" id="namespaces">
+            <dt><code>ea</code></dt>
+            <dd><code>https://www.w3.org/ns/epub/annotation/vocabulary#</code></dd>
+            <dt><code>oa</code></dt>
+            <dd><code>http://www.w3.org/ns/oa#</code></dd>
+            <dt><code>as</code></dt>
+            <dd><code>http://www.w3.org/ns/activitystreams#</code></dd>
+            <dt><code>dc</code></dt>
+            <dd><code>http://purl.org/dc/terms/</code></dd>
+            <dt><code>dc</code></dt>
+            <dd><code>http://purl.org/dc/terms/</code></dd>
+            <dt><code>dcterms</code></dt>
+            <dd><code>http://purl.org/dc/terms/</code></dd>
+            <dt><code>owl</code></dt>
+            <dd><code>http://www.w3.org/2002/07/owl#</code></dd>
+            <dt><code>rdf</code></dt>
+            <dd><code>http://www.w3.org/1999/02/22-rdf-syntax-ns#</code></dd>
+            <dt><code>rdfs</code></dt>
+            <dd><code>http://www.w3.org/2000/01/rdf-schema#</code></dd>
+            <dt><code>xsd</code></dt>
+            <dd><code>http://www.w3.org/2001/XMLSchema#</code></dd>
+            <dt><code>vs</code></dt>
+            <dd><code>http://www.w3.org/2003/06/sw-vocab-status/ns#</code></dd>
+            <dt><code>schema</code></dt>
+            <dd><code>http://schema.org/</code></dd>
+            <dt><code>jsonld</code></dt>
+            <dd><code>http://www.w3.org/ns/json-ld#</code></dd>
+        </dl>
+    </section>
+
+    <section id="term_definitions">
+        <h1>Term definitions</h1>
+
+        <section id="class_definitions" class="term_definitions">
+            <h2>Class definitions</h2>
+            <p>The following are class definitions in the <code>ea</code> namespace.</p>
+            <section id="Annotation">
+                <h4><code>Annotation</code></h4>
+                <p><em>EPUB Annotation Object</em></p>
+                <p>See the <a href="https://w3c.github.io/epub-specs/epub34/annotations/#1-1-annotation-object">formal definition of the term</a>.</p>
+                <div>The Annotation object of EPUB Annotation; the list of acceptable properties are restricted compared to the Web Annotation version.</div>
+                <dl class="terms">
+                    <dt>Subclass of:</dt>
+                    <dd><a href="http://www.w3.org/ns/oa#Annotation"><code>oa:Annotation</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Range of:</dt>
+                    <dd><a href="#items"><code>items</code></a></dd>
+                    <dt>Domain of:</dt>
+                    <dd><a href="#target"><code>target</code></a>, <a href="#body"><code>body</code></a>, <a href="#motivation"><code>motivation</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://wwww.w3.org/ns/epub/annotation/context"><code>https://wwww.w3.org/ns/epub/annotation/context</code></a></dd>
+                </dl>
+            </section>
+            <section id="Creator">
+                <h4><code>Creator</code></h4>
+                <p><em>Creator of an Annotation</em></p>
+                <p>See the <a href="https://w3c.github.io/epub-specs/epub34/annotations/#1-2-creator">formal definition of the term</a>.</p>
+                <div>This class is the subclass of the union of <code><a href="http://schema.org/Person">schema:Person</a></code> and <code><a
+                            href="http://schema.org/Organization">schema:Organization</a></code></div>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://wwww.w3.org/ns/epub/annotation/context"><code>https://wwww.w3.org/ns/epub/annotation/context</code></a></dd>
+                </dl>
+            </section>
+            <section id="Target">
+                <h4><code>Target</code></h4>
+                <p><em>Target of an Annotation</em></p>
+                <p>See the <a href="https://w3c.github.io/epub-specs/epub34/annotations/#1-3-target">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Range of:</dt>
+                    <dd><a href="#target"><code>target</code></a></dd>
+                    <dt>Domain of:</dt>
+                    <dd><a href="#source"><code>source</code></a>, <a href="#meta"><code>meta</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://wwww.w3.org/ns/epub/annotation/context"><code>https://wwww.w3.org/ns/epub/annotation/context</code></a></dd>
+                </dl>
+            </section>
+            <section id="Body">
+                <h4><code>Body</code></h4>
+                <p><em>Body of an Annotation</em></p>
+                <p>See the <a href="https://w3c.github.io/epub-specs/epub34/annotations/#1-4-body">formal definition of the term</a>.</p>
+                <div>In EPUB, annotations are restricted to textual content.</div>
+                <dl class="terms">
+                    <dt>Subclass of:</dt>
+                    <dd><a href="http://www.w3.org/ns/oa#TextualBody"><code>oa:TextualBody</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Range of:</dt>
+                    <dd><a href="#body"><code>body</code></a></dd>
+                    <dt>Domain of:</dt>
+                    <dd><a href="#value"><code>value</code></a>, <a href="#color"><code>color</code></a>, <a href="#highlight"><code>highlight</code></a>, <a
+                            href="#keyword"><code>keyword</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://wwww.w3.org/ns/epub/annotation/context"><code>https://wwww.w3.org/ns/epub/annotation/context</code></a></dd>
+                </dl>
+            </section>
+            <section id="AnnotationSet">
+                <h4><code>AnnotationSet</code></h4>
+                <p><em>Set of annotations</em></p>
+                <p>See the <a href="https://w3c.github.io/epub-specs/epub34/annotations/#2-annotation-set">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Domain of:</dt>
+                    <dd><a href="#about"><code>about</code></a>, <a href="#generator"><code>generator</code></a>, <a href="#title"><code>title</code></a>, <a
+                            href="#items"><code>items</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://wwww.w3.org/ns/epub/annotation/context"><code>https://wwww.w3.org/ns/epub/annotation/context</code></a></dd>
+                </dl>
+            </section>
+            <section id="About">
+                <h4><code>About</code></h4>
+                <p><em>Information about the publication</em></p>
+                <p>See the <a href="https://w3c.github.io/epub-specs/epub34/annotations/#2-2-about">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Range of:</dt>
+                    <dd><a href="#about"><code>about</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://wwww.w3.org/ns/epub/annotation/context"><code>https://wwww.w3.org/ns/epub/annotation/context</code></a></dd>
+                </dl>
+            </section>
+            <section id="Generator">
+                <h4><code>Generator</code></h4>
+                <p><em>Information about the tools generating the annotations</em></p>
+                <p>See the <a href="https://w3c.github.io/epub-specs/epub34/annotations/#2-1-generator">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Range of:</dt>
+                    <dd><a href="#generator"><code>generator</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://wwww.w3.org/ns/epub/annotation/context"><code>https://wwww.w3.org/ns/epub/annotation/context</code></a></dd>
+                </dl>
+            </section>
+            <section id="Meta">
+                <h4><code>Meta</code></h4>
+                <p><em>Meta</em></p>
+                <p>See the <a href="https://w3c.github.io/epub-specs/epub34/annotations/#1-3-target">formal definition of the term</a>.</p>
+                <div>this class is currently undefined...</div>
+                <dl class="terms">
+                    <dt>Range of:</dt>
+                    <dd><a href="#meta"><code>meta</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://wwww.w3.org/ns/epub/annotation/context"><code>https://wwww.w3.org/ns/epub/annotation/context</code></a></dd>
+                </dl>
+            </section>
+        </section>
+
+        <section id="property_definitions" class="term_definitions">
+            <h2>Property definitions</h2>
+            <p>The following are property definitions in the <code>ea</code> namespace.</p>
+            <section id="target">
+                <h4><code>target</code></h4>
+                <p><em>The target of an annotation</em></p>
+                <p>See the <a href="https://w3c.github.io/epub-specs/epub34/annotations/#1-3-target">formal definition of the term</a>.</p>
+                <div>The context file "shadows" the <code>target</code> term in the Web Annotation context file, restricting its range.</div>
+                <dl class="terms">
+                    <dt>Subproperty of:</dt>
+                    <dd><span><a href="http://www.w3.org/ns/oa#hasTarget"><code>oa:hasTarget</code></a></span><br></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Range:</dt>
+                    <dd><a href="#Target"><code>Target</code></a></dd>
+                    <dt>Domain:</dt>
+                    <dd><a href="#Annotation"><code>Annotation</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://wwww.w3.org/ns/epub/annotation/context"><code>https://wwww.w3.org/ns/epub/annotation/context</code></a></dd>
+                </dl>
+            </section>
+            <section id="body">
+                <h4><code>body</code></h4>
+                <p><em>The body of an annotation</em></p>
+                <p>See the <a href="https://w3c.github.io/epub-specs/epub34/annotations/#1-4-body">formal definition of the term</a>.</p>
+                <div>The context file "shadows" the <code>body</code> term in the Web Annotation context file, restricting its range.</div>
+                <dl class="terms">
+                    <dt>Subproperty of:</dt>
+                    <dd><span><a href="http://www.w3.org/ns/oa#hasBody"><code>oa:hasBody</code></a></span><br></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Range:</dt>
+                    <dd><a href="#Body"><code>Body</code></a></dd>
+                    <dt>Domain:</dt>
+                    <dd><a href="#Annotation"><code>Annotation</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://wwww.w3.org/ns/epub/annotation/context"><code>https://wwww.w3.org/ns/epub/annotation/context</code></a></dd>
+                </dl>
+            </section>
+            <section id="motivation">
+                <h4><code>motivation</code></h4>
+                <p><em>The motivation for an annotation</em></p>
+                <p>See the <a href="https://w3c.github.io/epub-specs/epub34/annotations/#1-1-annotation-object">formal definition of the term</a>.</p>
+                <div>The context file "shadows" the <code>body</code> term in the Web Annotation context file, restricting its range; see formal definition for the restrictions.
+                </div>
+                <dl class="terms">
+                    <dt>Subproperty of:</dt>
+                    <dd><span><a href="http://www.w3.org/ns/oa#motivatedBy"><code>oa:motivatedBy</code></a></span><br></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Range:</dt>
+                    <dd><a href="http://www.w3.org/ns/oa#Motivation"><code>oa:Motivation</code></a></dd>
+                    <dt>Domain:</dt>
+                    <dd><a href="#Annotation"><code>Annotation</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://wwww.w3.org/ns/epub/annotation/context"><code>https://wwww.w3.org/ns/epub/annotation/context</code></a></dd>
+                </dl>
+            </section>
+            <section id="about">
+                <h4><code>about</code></h4>
+                <p><em>Information on the publication</em></p>
+                <p>See the <a href="https://w3c.github.io/epub-specs/epub34/annotations/#2-annotation-set">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Range:</dt>
+                    <dd><a href="#About"><code>About</code></a></dd>
+                    <dt>Domain:</dt>
+                    <dd><a href="#AnnotationSet"><code>AnnotationSet</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://wwww.w3.org/ns/epub/annotation/context"><code>https://wwww.w3.org/ns/epub/annotation/context</code></a></dd>
+                </dl>
+            </section>
+            <section id="generator">
+                <h4><code>generator</code></h4>
+                <p><em>Generator</em></p>
+                <p>See the <a href="https://w3c.github.io/epub-specs/epub34/annotations/#2-annotation-set">formal definition of the term</a>.</p>
+                <div>The context file "shadows" the <code>generator</code> term in the Web Annotation context file, restricting its range; see formal definition for the
+                    restrictions.</div>
+                <dl class="terms">
+                    <dt>Range:</dt>
+                    <dd><a href="#Generator"><code>Generator</code></a></dd>
+                    <dt>Domain:</dt>
+                    <dd><a href="#AnnotationSet"><code>AnnotationSet</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://wwww.w3.org/ns/epub/annotation/context"><code>https://wwww.w3.org/ns/epub/annotation/context</code></a></dd>
+                </dl>
+            </section>
+            <section id="title">
+                <h4><code>title</code></h4>
+                <p><em>Title of the Annotation Set</em></p>
+                <p>See the <a href="https://w3c.github.io/epub-specs/epub34/annotations/#2-annotation-set">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Range:</dt>
+                    <dd><code>xsd:string</code></dd>
+                    <dt>Domain:</dt>
+                    <dd><a href="#AnnotationSet"><code>AnnotationSet</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://wwww.w3.org/ns/epub/annotation/context"><code>https://wwww.w3.org/ns/epub/annotation/context</code></a></dd>
+                </dl>
+            </section>
+            <section id="items">
+                <h4><code>items</code></h4>
+                <p><em>The reference to the set of annotations</em></p>
+                <p>See the <a href="https://w3c.github.io/epub-specs/epub34/annotations/#2-annotation-set">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Range:</dt>
+                    <dd>List containing <a href="#Annotation"><code>Annotation</code></a>
+                        <p>In a JSON-LD representation, values to this property are supposed to be represented in the form of a JSON array, even if there is just a single value.
+                        </p>
+                    </dd>
+                    <dt>Domain:</dt>
+                    <dd><a href="#AnnotationSet"><code>AnnotationSet</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://wwww.w3.org/ns/epub/annotation/context"><code>https://wwww.w3.org/ns/epub/annotation/context</code></a></dd>
+                </dl>
+            </section>
+            <section id="source">
+                <h4><code>source</code></h4>
+                <p><em>Source</em></p>
+                <p>See the <a href="https://w3c.github.io/epub-specs/epub34/annotations/#1-3-target">formal definition of the term</a>.</p>
+                <div>The context file "shadows" the <code>source</code> term in the Web Annotation context file, restricting its domain and controlling its alias name.<br><br>The
+                    property's value should be a URL, i.e., not a literal.</div>
+                <dl class="terms">
+                    <dt>Subproperty of:</dt>
+                    <dd><span><a href="http://www.w3.org/ns/oa#hasSource"><code>oa:hasSource</code></a></span><br></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Domain:</dt>
+                    <dd><a href="#Target"><code>Target</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://wwww.w3.org/ns/epub/annotation/context"><code>https://wwww.w3.org/ns/epub/annotation/context</code></a></dd>
+                </dl>
+            </section>
+            <section id="meta">
+                <h4><code>meta</code></h4>
+                <p><em>Meta</em></p>
+                <p>See the <a href="https://w3c.github.io/epub-specs/epub34/annotations/#1-3-target">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Range:</dt>
+                    <dd><a href="#Meta"><code>Meta</code></a></dd>
+                    <dt>Domain:</dt>
+                    <dd><a href="#Target"><code>Target</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://wwww.w3.org/ns/epub/annotation/context"><code>https://wwww.w3.org/ns/epub/annotation/context</code></a></dd>
+                </dl>
+            </section>
+            <section id="f2fc5e56d36bd1f46a3c733cef220e0063c7eab016a59ccdac2b08c9732b769b">
+                <h4><code>hasSelector</code></h4>
+                <p><em>Oa :has selector</em></p>
+                <div>The Web Annotation context file includes a <code>selector alias for this term.</code></div>
+                <p class="note">
+                    <b>This term is formally defined in another vocabulary</b>
+                    (as <a href="http://www.w3.org/ns/oa#hasSelector">oa:hasSelector</a>), but is frequently used with this vocabulary and has been
+                    included to aid readability of this document.
+                </p>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://wwww.w3.org/ns/epub/annotation/context"><code>https://wwww.w3.org/ns/epub/annotation/context</code></a></dd>
+                </dl>
+            </section>
+            <section id="value">
+                <h4><code>value</code></h4>
+                <p><em>Value</em></p>
+                <p>See the <a href="https://w3c.github.io/epub-specs/epub34/annotations/#1-4-body">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Subproperty of:</dt>
+                    <dd><span><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#value"><code>rdf:value</code></a></span><br></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Range:</dt>
+                    <dd><code>xsd:string</code></dd>
+                    <dt>Domain:</dt>
+                    <dd><a href="#Body"><code>Body</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://wwww.w3.org/ns/epub/annotation/context"><code>https://wwww.w3.org/ns/epub/annotation/context</code></a></dd>
+                </dl>
+            </section>
+            <section id="color">
+                <h4><code>color</code></h4>
+                <p><em>Color</em></p>
+                <p>See the <a href="https://w3c.github.io/epub-specs/epub34/annotations/#1-4-body">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Range:</dt>
+                    <dd><code>xsd:string</code></dd>
+                    <dt>Domain:</dt>
+                    <dd><a href="#Body"><code>Body</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://wwww.w3.org/ns/epub/annotation/context"><code>https://wwww.w3.org/ns/epub/annotation/context</code></a></dd>
+                </dl>
+            </section>
+            <section id="highlight">
+                <h4><code>highlight</code></h4>
+                <p><em>Highlight</em></p>
+                <p>See the <a href="https://w3c.github.io/epub-specs/epub34/annotations/#1-4-body">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Range:</dt>
+                    <dd><code>xsd:string</code></dd>
+                    <dt>Domain:</dt>
+                    <dd><a href="#Body"><code>Body</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://wwww.w3.org/ns/epub/annotation/context"><code>https://wwww.w3.org/ns/epub/annotation/context</code></a></dd>
+                </dl>
+            </section>
+            <section id="keyword">
+                <h4><code>keyword</code></h4>
+                <p><em>Keyword</em></p>
+                <p>See the <a href="https://w3c.github.io/epub-specs/epub34/annotations/#1-4-body">formal definition of the term</a>.</p>
+                <dl class="terms">
+                    <dt>Range:</dt>
+                    <dd><code>xsd:string</code></dd>
+                    <dt>Domain:</dt>
+                    <dd><a href="#Body"><code>Body</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://wwww.w3.org/ns/epub/annotation/context"><code>https://wwww.w3.org/ns/epub/annotation/context</code></a></dd>
+                </dl>
+            </section>
+        </section>
+
+
+    </section>
+
+
+    <section class="appendix" id="vocabulary-diagram-alt" style="visibility: hidden">
+        <h2>Image Description</h2>
+        <p>Whatever the right thing about the image is</p>
+    </section>
+
+
+</body>
+
+</html>

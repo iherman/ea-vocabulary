@@ -1,106 +1,188 @@
-# formally, the @context is not part of the annotation object...
+json_ld:
+    alias:
+        "language"  : "@language"
+        "direction" : "@direction"
+        "id"        : "@id"
+
+vocab:
+    - id: ea
+      value: https://www.w3.org/ns/epub/annotation/vocabulary#
+      context: https://wwww.w3.org/ns/epub/annotation/context
+
+prefix:
+    - id: oa
+      value: http://www.w3.org/ns/oa#
+
+    - id: as
+      value: http://www.w3.org/ns/activitystreams#
+
+    - id: dc
+      value: http://purl.org/dc/terms/
+
+ontology:
+    - property: dc:title
+      value: EPUB Annotations vocabulary
+
+    - property: dc:description
+      value: RDFS [[RDF-SCHEMA]] vocabulary used by the EPUB Annotation, as a profile of the W3C Web Annotation vocabulary
+
+    - property: rdfs:seeAlso
+      value: https://w3c.github.io/epub-specs/epub34/annotations/
+
 class:
-  - id: Annotation
-    upper_value: oa:Annotation
-    # required dcterms:created, dcterms:modified, dcterm:creator
-    # not to be used, as:generator, dcterms:issued
+    - id: Annotation
+      label: EPUB Annotation Object
+      upper_value: oa:Annotation
+      defined_by: https://w3c.github.io/epub-specs/epub34/annotations/#1-1-annotation-object
+      comment: The Annotation object of EPUB Annotation; the list of acceptable properties are restricted compared to the Web Annotation version.
 
-  - id: Creator
-    upper_value: owlUnion(schema:Person, schema:Organization)
+    - id: Creator
+      label: Creator of an Annotation
+      defined_by: https://w3c.github.io/epub-specs/epub34/annotations/#1-2-creator
+      comment: This class is the subclass of the union of <code><a href="http://schema.org/Person">schema:Person</a></code> and <code><a href="http://schema.org/Organization">schema:Organization</a></code>
 
-  - id: Target
+    - id: Target
+      label: Target of an Annotation
+      defined_by: https://w3c.github.io/epub-specs/epub34/annotations/#1-3-target
 
-  - id: Body
-    upper_value: oa:TextualBody
+    - id: Body
+      label: Body of an Annotation
+      defined_by: https://w3c.github.io/epub-specs/epub34/annotations/#1-4-body
+      upper_value: oa:TextualBody
+      comment: In EPUB,  annotations are restricted to textual content.
 
-  - id: AnnotationSet
+    - id: AnnotationSet
+      label: Set of annotations
+      defined_by: https://w3c.github.io/epub-specs/epub34/annotations/#2-annotation-set
 
-  - id: About
+    - id: About
+      label: Information about the publication
+      defined_by: https://w3c.github.io/epub-specs/epub34/annotations/#2-2-about
 
-  - id: Generator
+    - id: Generator
+      label: Information about the tools generating the annotations
+      defined_by: https://w3c.github.io/epub-specs/epub34/annotations/#2-1-generator
 
+    - id: Meta
+      defined_by: https://w3c.github.io/epub-specs/epub34/annotations/#1-3-target
+      comment: this class is currently undefined...
 
 property:
+    # Annotation object related properties
 
-  - id: target
-    upper_value: oa:hasTarget
-    domain: Annotation
-    range: Target
+    - id: target
+      label: The target of an annotation
+      upper_value: oa:hasTarget
+      domain: Annotation
+      range: Target
+      defined_by: https://w3c.github.io/epub-specs/epub34/annotations/#1-3-target
+      comment: The context file "shadows" the <code>target</code> term in the Web Annotation context file, restricting its range.
 
-  - id: body
-    upper_value: oa:hasBody
-    domain: Annotation
-    range: Body
+    - id: body
+      label: The body of an annotation
+      upper_value: oa:hasBody
+      domain: Annotation
+      range: Body
+      defined_by: https://w3c.github.io/epub-specs/epub34/annotations/#1-4-body
+      comment: The context file "shadows" the <code>body</code> term in the Web Annotation context file, restricting its range.
 
-  - id: motivation
-    upper_value: oa:motivatedBy
-    range: string
+    - id: motivation
+      label: The motivation for an annotation
+      upper_value: oa:motivatedBy
+      domain: Annotation
+      range: oa:Motivation
+      defined_by: https://w3c.github.io/epub-specs/epub34/annotations/#1-1-annotation-object
+      comment: The context file "shadows" the <code>body</code> term in the Web Annotation context file, restricting its range; see formal definition for the restrictions.
 
-  - id: name
-    upper_value: schema:name
+    # Annotation set related properties
+    - id: about
+      label: Information on the publication
+      domain: AnnotationSet
+      range: About
+      defined_by: https://w3c.github.io/epub-specs/epub34/annotations/#2-annotation-set
 
-  - id: homepage
-    domain: Generator
-    range: URL
+    - id: generator
+      domain: AnnotationSet
+      range: Generator
+      defined_by: https://w3c.github.io/epub-specs/epub34/annotations/#2-annotation-set
+      comment: The context file "shadows" the <code>generator</code> term in the Web Annotation context file, restricting its range; see formal definition for the restrictions.
 
-  - id: about
-    domain: AnnotationSet
-    range: About
+    - id: title
+      label: Title of the Annotation Set
+      domain: AnnotationSet
+      range: xsd:string
+      defined_by: https://w3c.github.io/epub-specs/epub34/annotations/#2-annotation-set
 
-  - id: generator
-    domain: AnnotationSet
-    range: Generator
-
-  - id: generated
-    domain: AnnotationSet
-    range: xsd:DateTime
-
-  - id: title
-    domain: AnnotationSet
-    range: string
-
-  - id: items
-    domain: AnnotationSet
-    range: Annotation
-    container: List
-
-  - id: source
-    upper_value: oa:hasSource
-    domain: Target
-
-  - id: meta
-    domain: Target
-    range: meta
-
-  - id: selector
-    upper_value: oa:hasSelector
-    domain: Target
-
-  - id: format
-    upper_value: dc:format
-
-  - id: color
-    domain: Body
-    range: Union of color values
-
-  - id: highlight
-    domain: Body
-    range: union of highlight values
-
-  - id: keyword
-    domain: Body
-    range: string
-
-  # language is an alias to @language
-  # textDirection is an alias to @direction
+    - id: items
+      label: The reference to the set of annotations
+      domain: AnnotationSet
+      range: Annotation
+      container: list
+      defined_by: https://w3c.github.io/epub-specs/epub34/annotations/#2-annotation-set
 
 
+    # Target properties
+    - id: source
+      upper_value: oa:hasSource
+      domain: Target
+      range: URL
+      comment: The context file "shadows" the <code>source</code> term in the Web Annotation context file, restricting its domain and controlling its alias name.
+      defined_by: https://w3c.github.io/epub-specs/epub34/annotations/#1-3-target
 
+    - id: meta
+      domain: Target
+      defined_by: https://w3c.github.io/epub-specs/epub34/annotations/#1-3-target
+      range: Meta
 
+    - id: oa:hasSelector
+      label: Assign selector(s) to a target
+      range: oa:Selector
+      comment: The Web Annotation context file includes a <code>selector</code> alias for this term.
 
+    # - id: dc:format
+    #   label: Media type of the publication expressed with <code>dc:format</code>
+    #   comment: Media type of the publication, used in the <a href="#About">About</a> object
 
+    # - id: dc:title
+    #   label: dc:title
+    #   comment: used in the <a href="#About"><code>About</code></a> object
 
+    # - id: dc:publisher
+    #   label: dc:publisher
+    #   comment: Name of the publisher, used in the <a href="#About"><code>About</code></a> object
 
+    # - id: dc:creator
+    #   label: dc:creator
+    #   comment: Creator(s) of the publication, used in the <a href="#About"><code>About</code></a> object
 
+    # - id: dc:date
+    #   label: dc:date
+    #   comment: Release year of the publication, used in the <a href="#About"><code>About</code></a> object
 
+    # - id: dc:identifier
+    #   comment: Publication identifiers, used in the <a href="#About"><code>About</code></a> object
 
+    # properties on Body
+    - id: value
+      upper_value: rdf:value
+      range: xsd:string
+      domain: Body
+      defined_by: https://w3c.github.io/epub-specs/epub34/annotations/#1-4-body
+
+    - id: color
+      domain: Body
+      range: xsd:string
+      defined_by: https://w3c.github.io/epub-specs/epub34/annotations/#1-4-body
+
+    - id: highlight
+      domain: Body
+      range: xsd:string
+      defined_by: https://w3c.github.io/epub-specs/epub34/annotations/#1-4-body
+
+    - id: keyword
+      domain: Body
+      range: xsd:string
+      defined_by: https://w3c.github.io/epub-specs/epub34/annotations/#1-4-body
+
+#     # language is an alias to @language
+#     # textDirection is an alias to @direction

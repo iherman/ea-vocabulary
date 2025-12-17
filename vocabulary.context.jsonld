@@ -1,0 +1,87 @@
+{
+  "@context": {
+    "@protected": true,
+    "language": "@language",
+    "direction": "@direction",
+    "id": "@id",
+    "Annotation": {
+      "@id": "https://www.w3.org/ns/epub/annotation/vocabulary#Annotation",
+      "@context": {
+        "@protected": true,
+        "target": {
+          "@id": "https://www.w3.org/ns/epub/annotation/vocabulary#target",
+          "@type": "@id"
+        },
+        "body": {
+          "@id": "https://www.w3.org/ns/epub/annotation/vocabulary#body",
+          "@type": "@id"
+        },
+        "motivation": "https://www.w3.org/ns/epub/annotation/vocabulary#motivation"
+      }
+    },
+    "Creator": "https://www.w3.org/ns/epub/annotation/vocabulary#Creator",
+    "Target": {
+      "@id": "https://www.w3.org/ns/epub/annotation/vocabulary#Target",
+      "@context": {
+        "@protected": true,
+        "source": {
+          "@id": "https://www.w3.org/ns/epub/annotation/vocabulary#source",
+          "@type": "@id"
+        },
+        "meta": {
+          "@id": "https://www.w3.org/ns/epub/annotation/vocabulary#meta",
+          "@type": "@id"
+        }
+      }
+    },
+    "Body": {
+      "@id": "https://www.w3.org/ns/epub/annotation/vocabulary#Body",
+      "@context": {
+        "@protected": true,
+        "value": {
+          "@id": "https://www.w3.org/ns/epub/annotation/vocabulary#value",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "color": {
+          "@id": "https://www.w3.org/ns/epub/annotation/vocabulary#color",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "highlight": {
+          "@id": "https://www.w3.org/ns/epub/annotation/vocabulary#highlight",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "keyword": {
+          "@id": "https://www.w3.org/ns/epub/annotation/vocabulary#keyword",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        }
+      }
+    },
+    "AnnotationSet": {
+      "@id": "https://www.w3.org/ns/epub/annotation/vocabulary#AnnotationSet",
+      "@context": {
+        "@protected": true,
+        "about": {
+          "@id": "https://www.w3.org/ns/epub/annotation/vocabulary#about",
+          "@type": "@id"
+        },
+        "generator": {
+          "@id": "https://www.w3.org/ns/epub/annotation/vocabulary#generator",
+          "@type": "@id"
+        },
+        "title": {
+          "@id": "https://www.w3.org/ns/epub/annotation/vocabulary#title",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "items": {
+          "@id": "https://www.w3.org/ns/epub/annotation/vocabulary#items",
+          "@type": "@id",
+          "@container": "@list"
+        }
+      }
+    },
+    "About": "https://www.w3.org/ns/epub/annotation/vocabulary#About",
+    "Generator": "https://www.w3.org/ns/epub/annotation/vocabulary#Generator",
+    "Meta": "https://www.w3.org/ns/epub/annotation/vocabulary#Meta",
+    "hasSelector": "http://www.w3.org/ns/oa#hasSelector"
+  }
+}
