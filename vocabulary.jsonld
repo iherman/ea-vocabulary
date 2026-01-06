@@ -3,6 +3,7 @@
     "ea": "https://www.w3.org/ns/epub/annotation/vocabulary#",
     "oa": "http://www.w3.org/ns/oa#",
     "as": "http://www.w3.org/ns/activitystreams#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
     "dc": "http://purl.org/dc/terms/",
     "dcterms": "http://purl.org/dc/terms/",
     "owl": "http://www.w3.org/2002/07/owl#",
@@ -10,7 +11,6 @@
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
     "vs": "http://www.w3.org/2003/06/sw-vocab-status/ns#",
-    "schema": "http://schema.org/",
     "jsonld": "http://www.w3.org/ns/json-ld#",
     "dc:date": {
       "@type": "xsd:date"
@@ -33,24 +33,12 @@
     "rdfs:isDefinedBy": {
       "@type": "@id"
     },
-    "owl:equivalentClass": {
-      "@type": "@vocab"
-    },
-    "owl:equivalentProperty": {
-      "@type": "@vocab"
-    },
     "owl:oneOf": {
       "@container": "@list",
       "@type": "@vocab"
     },
     "owl:deprecated": {
       "@type": "xsd:boolean"
-    },
-    "owl:imports": {
-      "@type": "@id"
-    },
-    "owl:versionInfo": {
-      "@type": "@id"
     },
     "owl:inverseOf": {
       "@type": "@vocab"
@@ -87,30 +75,25 @@
     "@language": "en"
   },
   "dc:description": {
-    "@value": "RDFS [[RDF-SCHEMA]] vocabulary used by the EPUB Annotation, as a profile of the W3C Web Annotation vocabulary",
+    "@value": "RDFS [[RDF-SCHEMA]] vocabulary used by the EPUB Annotation, as a profile of the W3C Web Annotation vocabulary.",
     "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
   },
   "rdfs:seeAlso": "https://w3c.github.io/epub-specs/epub34/annotations/",
-  "dc:date": "2025-12-17",
+  "dc:date": "2026-01-06",
   "rdfs_properties": [{
-    "@id": "ea:target",
+    "@id": "ea:about",
     "@type": ["rdf:Property", "owl:ObjectProperty"],
-    "rdfs:subPropertyOf": ["oa:hasTarget"],
-    "rdfs:domain": "ea:Annotation",
-    "rdfs:range": "ea:Target",
-    "rdfs:label": "The target of an annotation",
-    "rdfs:comment": {
-      "@value": "<div>The context file \"shadows\" the <code>target</code> term in the Web Annotation context file, restricting its range.</div>",
-      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
-    },
-    "rdfs:isDefinedBy": "https://w3c.github.io/epub-specs/epub34/annotations/#1-3-target",
+    "rdfs:domain": "ea:AnnotationSet",
+    "rdfs:range": "ea:About",
+    "rdfs:label": "Information on the publication",
+    "rdfs:isDefinedBy": "https://w3c.github.io/epub-specs/epub34/annotations/#2-annotation-set",
     "vs:term_status": "stable",
     "mentioned": [{
-      "@id": "https://wwww.w3.org/ns/epub/annotation/context",
+      "@id": "https://www.w3.org/ns/epub/anno.jsonld",
       "@type": "jsonld:Context"
     }]
   }, {
-    "@id": "ea:body",
+    "@id": "ea:hasBody",
     "@type": ["rdf:Property", "owl:ObjectProperty"],
     "rdfs:subPropertyOf": ["oa:hasBody"],
     "rdfs:domain": "ea:Annotation",
@@ -123,36 +106,35 @@
     "rdfs:isDefinedBy": "https://w3c.github.io/epub-specs/epub34/annotations/#1-4-body",
     "vs:term_status": "stable",
     "mentioned": [{
-      "@id": "https://wwww.w3.org/ns/epub/annotation/context",
+      "@id": "https://www.w3.org/ns/epub/anno.jsonld",
       "@type": "jsonld:Context"
     }]
   }, {
-    "@id": "ea:motivation",
-    "@type": "rdf:Property",
-    "rdfs:subPropertyOf": ["oa:motivatedBy"],
-    "rdfs:domain": "ea:Annotation",
-    "rdfs:range": "oa:Motivation",
-    "rdfs:label": "The motivation for an annotation",
+    "@id": "ea:color",
+    "@type": ["rdf:Property", "owl:DatatypeProperty"],
+    "rdfs:domain": "ea:Body",
+    "rdfs:range": "ea:Color",
+    "rdfs:label": "Color",
+    "rdfs:isDefinedBy": "https://w3c.github.io/epub-specs/epub34/annotations/#1-4-body",
+    "vs:term_status": "stable",
+    "mentioned": [{
+      "@id": "https://www.w3.org/ns/epub/anno.jsonld",
+      "@type": "jsonld:Context"
+    }]
+  }, {
+    "@id": "ea:creator",
+    "@type": ["rdf:Property", "owl:ObjectProperty"],
+    "rdfs:subPropertyOf": ["dcterms:creator"],
+    "rdfs:range": "ea:Creator",
+    "rdfs:label": "The creator of an annotation",
     "rdfs:comment": {
-      "@value": "<div>The context file \"shadows\" the <code>body</code> term in the Web Annotation context file, restricting its range; see formal definition for the restrictions.</div>",
+      "@value": "<div>The usage of the Dublin Core's <code>dcterm</code> value is restricted to certain type of values...</div>",
       "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
     },
     "rdfs:isDefinedBy": "https://w3c.github.io/epub-specs/epub34/annotations/#1-1-annotation-object",
     "vs:term_status": "stable",
     "mentioned": [{
-      "@id": "https://wwww.w3.org/ns/epub/annotation/context",
-      "@type": "jsonld:Context"
-    }]
-  }, {
-    "@id": "ea:about",
-    "@type": ["rdf:Property", "owl:ObjectProperty"],
-    "rdfs:domain": "ea:AnnotationSet",
-    "rdfs:range": "ea:About",
-    "rdfs:label": "Information on the publication",
-    "rdfs:isDefinedBy": "https://w3c.github.io/epub-specs/epub34/annotations/#2-annotation-set",
-    "vs:term_status": "stable",
-    "mentioned": [{
-      "@id": "https://wwww.w3.org/ns/epub/annotation/context",
+      "@id": "https://www.w3.org/ns/epub/anno.jsonld",
       "@type": "jsonld:Context"
     }]
   }, {
@@ -168,48 +150,31 @@
     "rdfs:isDefinedBy": "https://w3c.github.io/epub-specs/epub34/annotations/#2-annotation-set",
     "vs:term_status": "stable",
     "mentioned": [{
-      "@id": "https://wwww.w3.org/ns/epub/annotation/context",
+      "@id": "https://www.w3.org/ns/epub/anno.jsonld",
       "@type": "jsonld:Context"
     }]
   }, {
-    "@id": "ea:title",
+    "@id": "ea:highlight",
     "@type": ["rdf:Property", "owl:DatatypeProperty"],
-    "rdfs:domain": "ea:AnnotationSet",
-    "rdfs:range": "xsd:string",
-    "rdfs:label": "Title of the Annotation Set",
-    "rdfs:isDefinedBy": "https://w3c.github.io/epub-specs/epub34/annotations/#2-annotation-set",
+    "rdfs:domain": "ea:Body",
+    "rdfs:range": "ea:Highlight",
+    "rdfs:label": "Highlight",
+    "rdfs:isDefinedBy": "https://w3c.github.io/epub-specs/epub34/annotations/#1-4-body",
     "vs:term_status": "stable",
     "mentioned": [{
-      "@id": "https://wwww.w3.org/ns/epub/annotation/context",
+      "@id": "https://www.w3.org/ns/epub/anno.jsonld",
       "@type": "jsonld:Context"
     }]
   }, {
     "@id": "ea:items",
     "@type": ["rdf:Property", "owl:ObjectProperty"],
     "rdfs:domain": "ea:AnnotationSet",
-    "rdfs:range": "rdf:List",
+    "rdfs:range": "ea:Annotation",
     "rdfs:label": "The reference to the set of annotations",
     "rdfs:isDefinedBy": "https://w3c.github.io/epub-specs/epub34/annotations/#2-annotation-set",
     "vs:term_status": "stable",
     "mentioned": [{
-      "@id": "https://wwww.w3.org/ns/epub/annotation/context",
-      "@type": "jsonld:Context"
-    }]
-  }, {
-    "@id": "ea:source",
-    "@type": ["rdf:Property", "owl:ObjectProperty"],
-    "rdfs:subPropertyOf": ["oa:hasSource"],
-    "rdfs:domain": "ea:Target",
-    "rdfs:range": [],
-    "rdfs:label": "Source",
-    "rdfs:comment": {
-      "@value": "<div>The context file \"shadows\" the <code>source</code> term in the Web Annotation context file, restricting its domain and controlling its alias name.</div>",
-      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
-    },
-    "rdfs:isDefinedBy": "https://w3c.github.io/epub-specs/epub34/annotations/#1-3-target",
-    "vs:term_status": "stable",
-    "mentioned": [{
-      "@id": "https://wwww.w3.org/ns/epub/annotation/context",
+      "@id": "https://www.w3.org/ns/epub/anno.jsonld",
       "@type": "jsonld:Context"
     }]
   }, {
@@ -221,47 +186,135 @@
     "rdfs:isDefinedBy": "https://w3c.github.io/epub-specs/epub34/annotations/#1-3-target",
     "vs:term_status": "stable",
     "mentioned": [{
-      "@id": "https://wwww.w3.org/ns/epub/annotation/context",
+      "@id": "https://www.w3.org/ns/epub/anno.jsonld",
       "@type": "jsonld:Context"
     }]
   }, {
-    "@id": "ea:color",
-    "@type": ["rdf:Property", "owl:DatatypeProperty"],
-    "rdfs:domain": "ea:Body",
-    "rdfs:range": "xsd:string",
-    "rdfs:label": "Color",
-    "rdfs:isDefinedBy": "https://w3c.github.io/epub-specs/epub34/annotations/#1-4-body",
+    "@id": "ea:motivatedBy",
+    "@type": ["rdf:Property", "owl:ObjectProperty"],
+    "rdfs:subPropertyOf": ["oa:motivatedBy"],
+    "rdfs:domain": "ea:Annotation",
+    "rdfs:range": "ea:Motivation",
+    "rdfs:label": "The motivation for an annotation",
+    "rdfs:comment": {
+      "@value": "<div>The context file \"shadows\" the <code>body</code> term in the Web Annotation context file, restricting its range.</div>",
+      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+    },
+    "rdfs:isDefinedBy": "https://w3c.github.io/epub-specs/epub34/annotations/#1-1-annotation-object",
     "vs:term_status": "stable",
     "mentioned": [{
-      "@id": "https://wwww.w3.org/ns/epub/annotation/context",
+      "@id": "https://www.w3.org/ns/epub/anno.jsonld",
       "@type": "jsonld:Context"
     }]
   }, {
-    "@id": "ea:highlight",
+    "@id": "ea:name",
     "@type": ["rdf:Property", "owl:DatatypeProperty"],
-    "rdfs:domain": "ea:Body",
+    "rdfs:subPropertyOf": ["foaf:name"],
+    "rdfs:domain": {
+      "@type": "owl:Class",
+      "owl:unionOf": ["ea:Creator", "ea:Generator"]
+    },
     "rdfs:range": "xsd:string",
-    "rdfs:label": "Highlight",
-    "rdfs:isDefinedBy": "https://w3c.github.io/epub-specs/epub34/annotations/#1-4-body",
+    "rdfs:label": "Name",
+    "rdfs:comment": {
+      "@value": "<div>This property restricts the usage of <code>foaf:name</code> to be used on creators.</div>",
+      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+    },
+    "rdfs:isDefinedBy": "https://w3c.github.io/epub-specs/epub34/annotations/#2-annotation-set",
     "vs:term_status": "stable",
     "mentioned": [{
-      "@id": "https://wwww.w3.org/ns/epub/annotation/context",
+      "@id": "https://www.w3.org/ns/epub/anno.jsonld",
       "@type": "jsonld:Context"
     }]
   }, {
-    "@id": "ea:keyword",
+    "@id": "ea:hasSelector",
+    "@type": ["rdf:Property", "owl:ObjectProperty"],
+    "rdfs:subPropertyOf": ["oa:hasSelector"],
+    "rdfs:range": "ea:Selector",
+    "rdfs:label": "Assign selector(s) to a target",
+    "rdfs:comment": {
+      "@value": "<div>The range of this subproperty represents a subset of the Selectors, as defined by the Open Annotation specification.</div>",
+      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+    },
+    "rdfs:isDefinedBy": "https://w3c.github.io/epub-specs/epub34/annotations/#1-3-target",
+    "vs:term_status": "stable",
+    "mentioned": [{
+      "@id": "https://www.w3.org/ns/epub/anno.jsonld",
+      "@type": "jsonld:Context"
+    }]
+  }, {
+    "@id": "ea:hasSource",
+    "@type": ["rdf:Property", "owl:ObjectProperty"],
+    "rdfs:subPropertyOf": ["oa:hasSource"],
+    "rdfs:domain": "ea:Target",
+    "rdfs:label": "Has source",
+    "rdfs:comment": {
+      "@value": "<div>The context file \"shadows\" the <code>source</code> term in the Web Annotation context file, restricting its domain and controlling its alias name.</div>",
+      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+    },
+    "rdfs:isDefinedBy": "https://w3c.github.io/epub-specs/epub34/annotations/#1-3-target",
+    "vs:term_status": "stable",
+    "mentioned": [{
+      "@id": "https://www.w3.org/ns/epub/anno.jsonld",
+      "@type": "jsonld:Context"
+    }]
+  }, {
+    "@id": "ea:tags",
     "@type": ["rdf:Property", "owl:DatatypeProperty"],
     "rdfs:domain": "ea:Body",
     "rdfs:range": "xsd:string",
-    "rdfs:label": "Keyword",
+    "rdfs:label": "Tags",
     "rdfs:isDefinedBy": "https://w3c.github.io/epub-specs/epub34/annotations/#1-4-body",
     "vs:term_status": "stable",
     "mentioned": [{
-      "@id": "https://wwww.w3.org/ns/epub/annotation/context",
+      "@id": "https://www.w3.org/ns/epub/anno.jsonld",
+      "@type": "jsonld:Context"
+    }]
+  }, {
+    "@id": "ea:hasTarget",
+    "@type": ["rdf:Property", "owl:ObjectProperty"],
+    "rdfs:subPropertyOf": ["oa:hasTarget"],
+    "rdfs:domain": "ea:Annotation",
+    "rdfs:range": "ea:Target",
+    "rdfs:label": "The target of an annotation",
+    "rdfs:comment": {
+      "@value": "<div>The context file \"shadows\" the <code>target</code> term in the Web Annotation context file, restricting its range.</div>",
+      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+    },
+    "rdfs:isDefinedBy": "https://w3c.github.io/epub-specs/epub34/annotations/#1-3-target",
+    "vs:term_status": "stable",
+    "mentioned": [{
+      "@id": "https://www.w3.org/ns/epub/anno.jsonld",
+      "@type": "jsonld:Context"
+    }]
+  }, {
+    "@id": "ea:hasTitle",
+    "@type": ["rdf:Property", "owl:DatatypeProperty"],
+    "rdfs:domain": "ea:AnnotationSet",
+    "rdfs:range": "xsd:string",
+    "rdfs:label": "Title of the Annotation Set",
+    "rdfs:isDefinedBy": "https://w3c.github.io/epub-specs/epub34/annotations/#2-annotation-set",
+    "vs:term_status": "stable",
+    "mentioned": [{
+      "@id": "https://www.w3.org/ns/epub/anno.jsonld",
       "@type": "jsonld:Context"
     }]
   }],
   "rdfs_classes": [{
+    "@id": "ea:About",
+    "@type": "rdfs:Class",
+    "rdfs:label": "Information about the publication",
+    "rdfs:comment": {
+      "@value": "<div>The (externally defined) Dublin Core terms are used with this class, retaining the prefixes (to be in line with the EPUB Package Document)</div>",
+      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+    },
+    "rdfs:isDefinedBy": "https://w3c.github.io/epub-specs/epub34/annotations/#2-2-about",
+    "vs:term_status": "stable",
+    "mentioned": [{
+      "@id": "https://www.w3.org/ns/epub/anno.jsonld",
+      "@type": "jsonld:Context"
+    }]
+  }, {
     "@id": "ea:Annotation",
     "@type": "rdfs:Class",
     "rdfs:subClassOf": ["oa:Annotation"],
@@ -273,31 +326,17 @@
     "rdfs:isDefinedBy": "https://w3c.github.io/epub-specs/epub34/annotations/#1-1-annotation-object",
     "vs:term_status": "stable",
     "mentioned": [{
-      "@id": "https://wwww.w3.org/ns/epub/annotation/context",
+      "@id": "https://www.w3.org/ns/epub/anno.jsonld",
       "@type": "jsonld:Context"
     }]
   }, {
-    "@id": "ea:Creator",
+    "@id": "ea:AnnotationSet",
     "@type": "rdfs:Class",
-    "rdfs:label": "Creator of an Annotation",
-    "rdfs:comment": {
-      "@value": "<div>This class is the subclass of the union of <code><a href=\"http://schema.org/Person\">schema:Person</a></code> and <code><a href=\"http://schema.org/Organization\">schema:Organization</a></code></div>",
-      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
-    },
-    "rdfs:isDefinedBy": "https://w3c.github.io/epub-specs/epub34/annotations/#1-2-creator",
+    "rdfs:label": "Set of annotations",
+    "rdfs:isDefinedBy": "https://w3c.github.io/epub-specs/epub34/annotations/#2-annotation-set",
     "vs:term_status": "stable",
     "mentioned": [{
-      "@id": "https://wwww.w3.org/ns/epub/annotation/context",
-      "@type": "jsonld:Context"
-    }]
-  }, {
-    "@id": "ea:Target",
-    "@type": "rdfs:Class",
-    "rdfs:label": "Target of an Annotation",
-    "rdfs:isDefinedBy": "https://w3c.github.io/epub-specs/epub34/annotations/#1-3-target",
-    "vs:term_status": "stable",
-    "mentioned": [{
-      "@id": "https://wwww.w3.org/ns/epub/annotation/context",
+      "@id": "https://www.w3.org/ns/epub/anno.jsonld",
       "@type": "jsonld:Context"
     }]
   }, {
@@ -312,37 +351,25 @@
     "rdfs:isDefinedBy": "https://w3c.github.io/epub-specs/epub34/annotations/#1-4-body",
     "vs:term_status": "stable",
     "mentioned": [{
-      "@id": "https://wwww.w3.org/ns/epub/annotation/context",
+      "@id": "https://www.w3.org/ns/epub/anno.jsonld",
       "@type": "jsonld:Context"
     }]
   }, {
-    "@id": "ea:AnnotationSet",
+    "@id": "ea:Creator",
     "@type": "rdfs:Class",
-    "rdfs:label": "Set of annotations",
-    "rdfs:isDefinedBy": "https://w3c.github.io/epub-specs/epub34/annotations/#2-annotation-set",
+    "rdfs:subClassOf": {
+      "@type": "owl:Class",
+      "owl:unionOf": ["foaf:Person", "foaf:Organization", "as:Application"]
+    },
+    "rdfs:label": "Creator of an Annotation",
+    "rdfs:comment": {
+      "@value": "<div>The context file contains aliases for the possible creator values, JSON-LD serializations can simply use the terms <code>Person</code>, <code>Organization</code>, or <code>Software</code>.</div>",
+      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+    },
+    "rdfs:isDefinedBy": "https://w3c.github.io/epub-specs/epub34/annotations/#1-2-creator",
     "vs:term_status": "stable",
     "mentioned": [{
-      "@id": "https://wwww.w3.org/ns/epub/annotation/context",
-      "@type": "jsonld:Context"
-    }]
-  }, {
-    "@id": "ea:About",
-    "@type": "rdfs:Class",
-    "rdfs:label": "Information about the publication",
-    "rdfs:isDefinedBy": "https://w3c.github.io/epub-specs/epub34/annotations/#2-2-about",
-    "vs:term_status": "stable",
-    "mentioned": [{
-      "@id": "https://wwww.w3.org/ns/epub/annotation/context",
-      "@type": "jsonld:Context"
-    }]
-  }, {
-    "@id": "ea:Generator",
-    "@type": "rdfs:Class",
-    "rdfs:label": "Information about the tools generating the annotations",
-    "rdfs:isDefinedBy": "https://w3c.github.io/epub-specs/epub34/annotations/#2-1-generator",
-    "vs:term_status": "stable",
-    "mentioned": [{
-      "@id": "https://wwww.w3.org/ns/epub/annotation/context",
+      "@id": "https://www.w3.org/ns/epub/anno.jsonld",
       "@type": "jsonld:Context"
     }]
   }, {
@@ -356,7 +383,92 @@
     "rdfs:isDefinedBy": "https://w3c.github.io/epub-specs/epub34/annotations/#1-3-target",
     "vs:term_status": "stable",
     "mentioned": [{
-      "@id": "https://wwww.w3.org/ns/epub/annotation/context",
+      "@id": "https://www.w3.org/ns/epub/anno.jsonld",
+      "@type": "jsonld:Context"
+    }]
+  }, {
+    "@id": "ea:Generator",
+    "@type": "rdfs:Class",
+    "rdfs:label": "Information about the tools generating the annotations",
+    "rdfs:isDefinedBy": "https://w3c.github.io/epub-specs/epub34/annotations/#2-1-generator",
+    "vs:term_status": "stable",
+    "mentioned": [{
+      "@id": "https://www.w3.org/ns/epub/anno.jsonld",
+      "@type": "jsonld:Context"
+    }]
+  }, {
+    "@id": "ea:Motivation",
+    "@type": ["rdfs:Class", "owl:Class"],
+    "rdfs:subClassOf": ["oa:Motivation"],
+    "owl:oneOf": ["oa:bookmarking", "oa:commenting", "oa:highlighting"],
+    "rdfs:label": "A restrictive subset of Open Annotation's Motivations",
+    "rdfs:isDefinedBy": "https://w3c.github.io/epub-specs/epub34/annotations/#1-1-annotation-object",
+    "vs:term_status": "stable",
+    "mentioned": [{
+      "@id": "https://www.w3.org/ns/epub/anno.jsonld",
+      "@type": "jsonld:Context"
+    }]
+  }, {
+    "@id": "ea:Selector",
+    "@type": "rdfs:Class",
+    "rdfs:subClassOf": {
+      "@type": "owl:Class",
+      "owl:unionOf": ["oa:FragmentSelector", "oa:CssSelector", "oa:TextQuoteSelector"]
+    },
+    "rdfs:label": "A restrictive subset of selectors, used in EPUB",
+    "rdfs:comment": {
+      "@value": "<div>The final list of selectors for EPUB is still to be defined, this is only a placeholder for now.</div>",
+      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
+    },
+    "rdfs:isDefinedBy": "https://w3c.github.io/epub-specs/epub34/annotations/#1-3-target",
+    "vs:term_status": "stable",
+    "mentioned": [{
+      "@id": "https://www.w3.org/ns/epub/anno.jsonld",
+      "@type": "jsonld:Context"
+    }]
+  }, {
+    "@id": "ea:Target",
+    "@type": "rdfs:Class",
+    "rdfs:label": "Target of an Annotation",
+    "rdfs:isDefinedBy": "https://w3c.github.io/epub-specs/epub34/annotations/#1-3-target",
+    "vs:term_status": "stable",
+    "mentioned": [{
+      "@id": "https://www.w3.org/ns/epub/anno.jsonld",
+      "@type": "jsonld:Context"
+    }]
+  }],
+  "rdfs_datatypes": [{
+    "@id": "ea:Color",
+    "@type": "rdfs:Datatype",
+    "rdfs:subClassOf": ["xsd:string"],
+    "owl:onDatatype": "xsd:string",
+    "owl:withRestrictions": {
+      "@list": [{
+        "xsd:pattern": "pink|orange|yellow|green|blue|purple"
+      }]
+    },
+    "rdfs:label": "Color",
+    "rdfs:isDefinedBy": "https://w3c.github.io/epub-specs/epub34/annotations/#2-annotation-set",
+    "vs:term_status": "stable",
+    "mentioned": [{
+      "@id": "https://www.w3.org/ns/epub/anno.jsonld",
+      "@type": "jsonld:Context"
+    }]
+  }, {
+    "@id": "ea:Highlight",
+    "@type": "rdfs:Datatype",
+    "rdfs:subClassOf": ["xsd:string"],
+    "owl:onDatatype": "xsd:string",
+    "owl:withRestrictions": {
+      "@list": [{
+        "xsd:pattern": "solid|underline|strikethrough|outline"
+      }]
+    },
+    "rdfs:label": "Highlight",
+    "rdfs:isDefinedBy": "https://w3c.github.io/epub-specs/epub34/annotations/#2-annotation-set",
+    "vs:term_status": "stable",
+    "mentioned": [{
+      "@id": "https://www.w3.org/ns/epub/anno.jsonld",
       "@type": "jsonld:Context"
     }]
   }]
