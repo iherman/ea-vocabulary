@@ -1,5 +1,6 @@
 {
   "@context": {
+    "@version": "1.1",
     "@import": "http://www.w3.org/ns/anno.jsonld",
     "@protected": true,
     "language": "@language",
@@ -18,7 +19,13 @@
         },
         "motivation": {
           "@id": "https://www.w3.org/ns/epub/annotation/vocabulary#motivatedBy",
-          "@type": "@id"
+          "@type": "@vocab",
+          "@context": {
+            "bookmarking": "http://www.w3.org/ns/oa#bookmarking",
+            "commenting": "http://www.w3.org/ns/oa#commenting",
+            "highlighting": "http://www.w3.org/ns/oa#highlighting",
+            "@vocab": "ea:INVALID_VALUE:"
+          }
         },
         "target": {
           "@id": "https://www.w3.org/ns/epub/annotation/vocabulary#hasTarget",
@@ -55,11 +62,27 @@
         "@protected": true,
         "color": {
           "@id": "https://www.w3.org/ns/epub/annotation/vocabulary#color",
-          "@type": "https://www.w3.org/ns/epub/annotation/vocabulary#Color"
+          "@type": "@vocab",
+          "@context": {
+            "pink": "https://www.w3.org/ns/epub/annotation/vocabulary#pink",
+            "orange": "https://www.w3.org/ns/epub/annotation/vocabulary#orange",
+            "yellow": "https://www.w3.org/ns/epub/annotation/vocabulary#yellow",
+            "green": "https://www.w3.org/ns/epub/annotation/vocabulary#green",
+            "blue": "https://www.w3.org/ns/epub/annotation/vocabulary#blue",
+            "purple": "https://www.w3.org/ns/epub/annotation/vocabulary#purple",
+            "@vocab": "ea:INVALID_VALUE:"
+          }
         },
         "highlight": {
           "@id": "https://www.w3.org/ns/epub/annotation/vocabulary#highlight",
-          "@type": "https://www.w3.org/ns/epub/annotation/vocabulary#Highlight"
+          "@type": "@vocab",
+          "@context": {
+            "solid": "https://www.w3.org/ns/epub/annotation/vocabulary#solid",
+            "underline": "https://www.w3.org/ns/epub/annotation/vocabulary#underline",
+            "strikethrough": "https://www.w3.org/ns/epub/annotation/vocabulary#strikethrough",
+            "outline": "https://www.w3.org/ns/epub/annotation/vocabulary#outline",
+            "@vocab": "ea:INVALID_VALUE:"
+          }
         },
         "tags": {
           "@id": "https://www.w3.org/ns/epub/annotation/vocabulary#tags",
@@ -89,7 +112,6 @@
         }
       }
     },
-    "Motivation": "https://www.w3.org/ns/epub/annotation/vocabulary#Motivation",
     "Selector": "https://www.w3.org/ns/epub/annotation/vocabulary#Selector",
     "Target": {
       "@id": "https://www.w3.org/ns/epub/annotation/vocabulary#Target",
@@ -114,7 +136,15 @@
       "@id": "https://www.w3.org/ns/epub/annotation/vocabulary#hasSelector",
       "@type": "@id"
     },
-    "Color": "https://www.w3.org/ns/epub/annotation/vocabulary#Color",
-    "Highlight": "https://www.w3.org/ns/epub/annotation/vocabulary#Highlight"
+    "pink": "https://www.w3.org/ns/epub/annotation/vocabulary#pink",
+    "orange": "https://www.w3.org/ns/epub/annotation/vocabulary#orange",
+    "yellow": "https://www.w3.org/ns/epub/annotation/vocabulary#yellow",
+    "green": "https://www.w3.org/ns/epub/annotation/vocabulary#green",
+    "blue": "https://www.w3.org/ns/epub/annotation/vocabulary#blue",
+    "purple": "https://www.w3.org/ns/epub/annotation/vocabulary#purple",
+    "solid": "https://www.w3.org/ns/epub/annotation/vocabulary#solid",
+    "underline": "https://www.w3.org/ns/epub/annotation/vocabulary#underline",
+    "strikethrough": "https://www.w3.org/ns/epub/annotation/vocabulary#strikethrough",
+    "outline": "https://www.w3.org/ns/epub/annotation/vocabulary#outline"
   }
 }

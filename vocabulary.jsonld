@@ -79,7 +79,7 @@
     "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
   },
   "rdfs:seeAlso": "https://w3c.github.io/epub-specs/epub34/annotations/",
-  "dc:date": "2026-01-06",
+  "dc:date": "2026-01-07",
   "rdfs_properties": [{
     "@id": "ea:about",
     "@type": ["rdf:Property", "owl:ObjectProperty"],
@@ -111,9 +111,12 @@
     }]
   }, {
     "@id": "ea:color",
-    "@type": ["rdf:Property", "owl:DatatypeProperty"],
+    "@type": "rdf:Property",
     "rdfs:domain": "ea:Body",
-    "rdfs:range": "ea:Color",
+    "rdfs:range": {
+      "@type": "owl:class",
+      "owl:oneOf": ["ea:pink", "ea:orange", "ea:yellow", "ea:green", "ea:blue", "ea:purple"]
+    },
     "rdfs:label": "Color",
     "rdfs:isDefinedBy": "https://w3c.github.io/epub-specs/epub34/annotations/#1-4-body",
     "vs:term_status": "stable",
@@ -155,9 +158,12 @@
     }]
   }, {
     "@id": "ea:highlight",
-    "@type": ["rdf:Property", "owl:DatatypeProperty"],
+    "@type": "rdf:Property",
     "rdfs:domain": "ea:Body",
-    "rdfs:range": "ea:Highlight",
+    "rdfs:range": {
+      "@type": "owl:class",
+      "owl:oneOf": ["ea:solid", "ea:underline", "ea:strikethrough", "ea:outline"]
+    },
     "rdfs:label": "Highlight",
     "rdfs:isDefinedBy": "https://w3c.github.io/epub-specs/epub34/annotations/#1-4-body",
     "vs:term_status": "stable",
@@ -191,10 +197,13 @@
     }]
   }, {
     "@id": "ea:motivatedBy",
-    "@type": ["rdf:Property", "owl:ObjectProperty"],
+    "@type": "rdf:Property",
     "rdfs:subPropertyOf": ["oa:motivatedBy"],
     "rdfs:domain": "ea:Annotation",
-    "rdfs:range": "ea:Motivation",
+    "rdfs:range": ["ea:Motivation", {
+      "@type": "owl:class",
+      "owl:oneOf": ["oa:bookmarking", "oa:commenting", "oa:highlighting"]
+    }],
     "rdfs:label": "The motivation for an annotation",
     "rdfs:comment": {
       "@value": "<div>The context file \"shadows\" the <code>body</code> term in the Web Annotation context file, restricting its range.</div>",
@@ -397,18 +406,6 @@
       "@type": "jsonld:Context"
     }]
   }, {
-    "@id": "ea:Motivation",
-    "@type": ["rdfs:Class", "owl:Class"],
-    "rdfs:subClassOf": ["oa:Motivation"],
-    "owl:oneOf": ["oa:bookmarking", "oa:commenting", "oa:highlighting"],
-    "rdfs:label": "A restrictive subset of Open Annotation's Motivations",
-    "rdfs:isDefinedBy": "https://w3c.github.io/epub-specs/epub34/annotations/#1-1-annotation-object",
-    "vs:term_status": "stable",
-    "mentioned": [{
-      "@id": "https://www.w3.org/ns/epub/anno.jsonld",
-      "@type": "jsonld:Context"
-    }]
-  }, {
     "@id": "ea:Selector",
     "@type": "rdfs:Class",
     "rdfs:subClassOf": {
@@ -437,17 +434,10 @@
       "@type": "jsonld:Context"
     }]
   }],
-  "rdfs_datatypes": [{
-    "@id": "ea:Color",
-    "@type": "rdfs:Datatype",
-    "rdfs:subClassOf": ["xsd:string"],
-    "owl:onDatatype": "xsd:string",
-    "owl:withRestrictions": {
-      "@list": [{
-        "xsd:pattern": "pink|orange|yellow|green|blue|purple"
-      }]
-    },
-    "rdfs:label": "Color",
+  "rdfs_individuals": [{
+    "@id": "ea:pink",
+    "@type": "rdfs:Resource",
+    "rdfs:label": "Pink color for selection color",
     "rdfs:isDefinedBy": "https://w3c.github.io/epub-specs/epub34/annotations/#2-annotation-set",
     "vs:term_status": "stable",
     "mentioned": [{
@@ -455,16 +445,89 @@
       "@type": "jsonld:Context"
     }]
   }, {
-    "@id": "ea:Highlight",
-    "@type": "rdfs:Datatype",
-    "rdfs:subClassOf": ["xsd:string"],
-    "owl:onDatatype": "xsd:string",
-    "owl:withRestrictions": {
-      "@list": [{
-        "xsd:pattern": "solid|underline|strikethrough|outline"
-      }]
-    },
-    "rdfs:label": "Highlight",
+    "@id": "ea:orange",
+    "@type": "rdfs:Resource",
+    "rdfs:label": "Orange color for selection color",
+    "rdfs:isDefinedBy": "https://w3c.github.io/epub-specs/epub34/annotations/#2-annotation-set",
+    "vs:term_status": "stable",
+    "mentioned": [{
+      "@id": "https://www.w3.org/ns/epub/anno.jsonld",
+      "@type": "jsonld:Context"
+    }]
+  }, {
+    "@id": "ea:yellow",
+    "@type": "rdfs:Resource",
+    "rdfs:label": "Yellow color for selection color",
+    "rdfs:isDefinedBy": "https://w3c.github.io/epub-specs/epub34/annotations/#2-annotation-set",
+    "vs:term_status": "stable",
+    "mentioned": [{
+      "@id": "https://www.w3.org/ns/epub/anno.jsonld",
+      "@type": "jsonld:Context"
+    }]
+  }, {
+    "@id": "ea:green",
+    "@type": "rdfs:Resource",
+    "rdfs:label": "Green color for selection color",
+    "rdfs:isDefinedBy": "https://w3c.github.io/epub-specs/epub34/annotations/#2-annotation-set",
+    "vs:term_status": "stable",
+    "mentioned": [{
+      "@id": "https://www.w3.org/ns/epub/anno.jsonld",
+      "@type": "jsonld:Context"
+    }]
+  }, {
+    "@id": "ea:blue",
+    "@type": "rdfs:Resource",
+    "rdfs:label": "Blue color for selection color",
+    "rdfs:isDefinedBy": "https://w3c.github.io/epub-specs/epub34/annotations/#2-annotation-set",
+    "vs:term_status": "stable",
+    "mentioned": [{
+      "@id": "https://www.w3.org/ns/epub/anno.jsonld",
+      "@type": "jsonld:Context"
+    }]
+  }, {
+    "@id": "ea:purple",
+    "@type": "rdfs:Resource",
+    "rdfs:label": "Purple color for selection color",
+    "rdfs:isDefinedBy": "https://w3c.github.io/epub-specs/epub34/annotations/#2-annotation-set",
+    "vs:term_status": "stable",
+    "mentioned": [{
+      "@id": "https://www.w3.org/ns/epub/anno.jsonld",
+      "@type": "jsonld:Context"
+    }]
+  }, {
+    "@id": "ea:solid",
+    "@type": "rdfs:Resource",
+    "rdfs:label": "Selection highlight solid",
+    "rdfs:isDefinedBy": "https://w3c.github.io/epub-specs/epub34/annotations/#2-annotation-set",
+    "vs:term_status": "stable",
+    "mentioned": [{
+      "@id": "https://www.w3.org/ns/epub/anno.jsonld",
+      "@type": "jsonld:Context"
+    }]
+  }, {
+    "@id": "ea:underline",
+    "@type": "rdfs:Resource",
+    "rdfs:label": "Selection highlight underline",
+    "rdfs:isDefinedBy": "https://w3c.github.io/epub-specs/epub34/annotations/#2-annotation-set",
+    "vs:term_status": "stable",
+    "mentioned": [{
+      "@id": "https://www.w3.org/ns/epub/anno.jsonld",
+      "@type": "jsonld:Context"
+    }]
+  }, {
+    "@id": "ea:strikethrough",
+    "@type": "rdfs:Resource",
+    "rdfs:label": "Selection highlight strikethrough",
+    "rdfs:isDefinedBy": "https://w3c.github.io/epub-specs/epub34/annotations/#2-annotation-set",
+    "vs:term_status": "stable",
+    "mentioned": [{
+      "@id": "https://www.w3.org/ns/epub/anno.jsonld",
+      "@type": "jsonld:Context"
+    }]
+  }, {
+    "@id": "ea:outline",
+    "@type": "rdfs:Resource",
+    "rdfs:label": "Selection highlight outline",
     "rdfs:isDefinedBy": "https://w3c.github.io/epub-specs/epub34/annotations/#2-annotation-set",
     "vs:term_status": "stable",
     "mentioned": [{

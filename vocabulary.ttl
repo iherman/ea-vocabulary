@@ -15,7 +15,7 @@ ea: a owl:Ontology ;
     dc:title """EPUB Annotations vocabulary"""@en ;
     dc:description """RDFS [[RDF-SCHEMA]] vocabulary used by the EPUB Annotation, as a profile of the W3C Web Annotation vocabulary."""^^rdf:HTML ;
     rdfs:seeAlso <https://w3c.github.io/epub-specs/epub34/annotations/> ;
-    dc:date "2026-01-06"^^xsd:date ;
+    dc:date "2026-01-07"^^xsd:date ;
 .
 
 # Property definitions
@@ -37,9 +37,9 @@ ea:hasBody a rdf:Property, owl:ObjectProperty ;
     vs:term_status "stable" ;
 .
 
-ea:color a rdf:Property, owl:DatatypeProperty ;
+ea:color a rdf:Property ;
     rdfs:domain ea:Body ;
-    rdfs:range ea:Color ;
+    rdfs:range [ a owl:Class; owl:oneOf (ea:pink ea:orange ea:yellow ea:green ea:blue ea:purple) ] ;
     rdfs:label "Color" ;
     rdfs:isDefinedBy <https://w3c.github.io/epub-specs/epub34/annotations/#1-4-body>, <https://www.w3.org/ns/epub/annotation/vocabulary#> ;
     vs:term_status "stable" ;
@@ -63,9 +63,9 @@ ea:generator a rdf:Property, owl:ObjectProperty ;
     vs:term_status "stable" ;
 .
 
-ea:highlight a rdf:Property, owl:DatatypeProperty ;
+ea:highlight a rdf:Property ;
     rdfs:domain ea:Body ;
-    rdfs:range ea:Highlight ;
+    rdfs:range [ a owl:Class; owl:oneOf (ea:solid ea:underline ea:strikethrough ea:outline) ] ;
     rdfs:label "Highlight" ;
     rdfs:isDefinedBy <https://w3c.github.io/epub-specs/epub34/annotations/#1-4-body>, <https://www.w3.org/ns/epub/annotation/vocabulary#> ;
     vs:term_status "stable" ;
@@ -87,10 +87,10 @@ ea:meta a rdf:Property, owl:ObjectProperty ;
     vs:term_status "stable" ;
 .
 
-ea:motivatedBy a rdf:Property, owl:ObjectProperty ;
+ea:motivatedBy a rdf:Property ;
     rdfs:subPropertyOf oa:motivatedBy ;
     rdfs:domain ea:Annotation ;
-    rdfs:range ea:Motivation ;
+    rdfs:range ea:Motivation, [ a owl:Class; owl:oneOf (oa:bookmarking oa:commenting oa:highlighting) ] ;
     rdfs:label "The motivation for an annotation" ;
     rdfs:comment """<div>The context file "shadows" the <code>body</code> term in the Web Annotation context file, restricting its range.</div>"""^^rdf:HTML ;
     rdfs:isDefinedBy <https://w3c.github.io/epub-specs/epub34/annotations/#1-1-annotation-object>, <https://www.w3.org/ns/epub/annotation/vocabulary#> ;
@@ -202,14 +202,6 @@ ea:Generator a rdfs:Class ;
     vs:term_status "stable" ;
 .
 
-ea:Motivation a rdfs:Class, owl:Class ;
-    rdfs:subClassOf oa:Motivation ;
-    owl:oneOf (oa:bookmarking oa:commenting oa:highlighting) ;
-    rdfs:label "A restrictive subset of Open Annotation's Motivations" ;
-    rdfs:isDefinedBy <https://w3c.github.io/epub-specs/epub34/annotations/#1-1-annotation-object>, <https://www.w3.org/ns/epub/annotation/vocabulary#> ;
-    vs:term_status "stable" ;
-.
-
 ea:Selector a rdfs:Class ;
     rdfs:subClassOf [ a owl:Class; owl:unionOf (oa:FragmentSelector oa:CssSelector oa:TextQuoteSelector) ] ;
     rdfs:label "A restrictive subset of selectors, used in EPUB" ;
@@ -226,21 +218,63 @@ ea:Target a rdfs:Class ;
 
 
 
-# Definitions of datatypes
-ea:Color a rdfs:Datatype ;
-    rdfs:subClassOf xsd:string ;
-    owl:onDatatype xsd:string ;
-    owl:withRestrictions ([xsd:pattern "pink|orange|yellow|green|blue|purple"]) ;
-    rdfs:label "Color" ;
+# Definitions of individuals
+ea:pink a rdfs:Resource ;
+    rdfs:label "Pink color for selection color" ;
     rdfs:isDefinedBy <https://w3c.github.io/epub-specs/epub34/annotations/#2-annotation-set>, <https://www.w3.org/ns/epub/annotation/vocabulary#> ;
     vs:term_status "stable" ;
 .
 
-ea:Highlight a rdfs:Datatype ;
-    rdfs:subClassOf xsd:string ;
-    owl:onDatatype xsd:string ;
-    owl:withRestrictions ([xsd:pattern "solid|underline|strikethrough|outline"]) ;
-    rdfs:label "Highlight" ;
+ea:orange a rdfs:Resource ;
+    rdfs:label "Orange color for selection color" ;
+    rdfs:isDefinedBy <https://w3c.github.io/epub-specs/epub34/annotations/#2-annotation-set>, <https://www.w3.org/ns/epub/annotation/vocabulary#> ;
+    vs:term_status "stable" ;
+.
+
+ea:yellow a rdfs:Resource ;
+    rdfs:label "Yellow color for selection color" ;
+    rdfs:isDefinedBy <https://w3c.github.io/epub-specs/epub34/annotations/#2-annotation-set>, <https://www.w3.org/ns/epub/annotation/vocabulary#> ;
+    vs:term_status "stable" ;
+.
+
+ea:green a rdfs:Resource ;
+    rdfs:label "Green color for selection color" ;
+    rdfs:isDefinedBy <https://w3c.github.io/epub-specs/epub34/annotations/#2-annotation-set>, <https://www.w3.org/ns/epub/annotation/vocabulary#> ;
+    vs:term_status "stable" ;
+.
+
+ea:blue a rdfs:Resource ;
+    rdfs:label "Blue color for selection color" ;
+    rdfs:isDefinedBy <https://w3c.github.io/epub-specs/epub34/annotations/#2-annotation-set>, <https://www.w3.org/ns/epub/annotation/vocabulary#> ;
+    vs:term_status "stable" ;
+.
+
+ea:purple a rdfs:Resource ;
+    rdfs:label "Purple color for selection color" ;
+    rdfs:isDefinedBy <https://w3c.github.io/epub-specs/epub34/annotations/#2-annotation-set>, <https://www.w3.org/ns/epub/annotation/vocabulary#> ;
+    vs:term_status "stable" ;
+.
+
+ea:solid a rdfs:Resource ;
+    rdfs:label "Selection highlight solid" ;
+    rdfs:isDefinedBy <https://w3c.github.io/epub-specs/epub34/annotations/#2-annotation-set>, <https://www.w3.org/ns/epub/annotation/vocabulary#> ;
+    vs:term_status "stable" ;
+.
+
+ea:underline a rdfs:Resource ;
+    rdfs:label "Selection highlight underline" ;
+    rdfs:isDefinedBy <https://w3c.github.io/epub-specs/epub34/annotations/#2-annotation-set>, <https://www.w3.org/ns/epub/annotation/vocabulary#> ;
+    vs:term_status "stable" ;
+.
+
+ea:strikethrough a rdfs:Resource ;
+    rdfs:label "Selection highlight strikethrough" ;
+    rdfs:isDefinedBy <https://w3c.github.io/epub-specs/epub34/annotations/#2-annotation-set>, <https://www.w3.org/ns/epub/annotation/vocabulary#> ;
+    vs:term_status "stable" ;
+.
+
+ea:outline a rdfs:Resource ;
+    rdfs:label "Selection highlight outline" ;
     rdfs:isDefinedBy <https://w3c.github.io/epub-specs/epub34/annotations/#2-annotation-set>, <https://www.w3.org/ns/epub/annotation/vocabulary#> ;
     vs:term_status "stable" ;
 .
@@ -252,18 +286,17 @@ ea:Highlight a rdfs:Datatype ;
         ea:Annotation,
         ea:AnnotationSet,
         ea:Body,
-        ea:Color,
         ea:Creator,
         ea:Generator,
-        ea:Highlight,
         ea:Meta,
-        ea:Motivation,
         ea:Selector,
         ea:Target,
         ea:about,
+        ea:blue,
         ea:color,
         ea:creator,
         ea:generator,
+        ea:green,
         ea:hasBody,
         ea:hasSelector,
         ea:hasSource,
@@ -274,7 +307,15 @@ ea:Highlight a rdfs:Datatype ;
         ea:meta,
         ea:motivatedBy,
         ea:name,
+        ea:orange,
+        ea:outline,
+        ea:pink,
+        ea:purple,
+        ea:solid,
+        ea:strikethrough,
         ea:tags,
+        ea:underline,
+        ea:yellow,
         foaf:homepage ;
 .
 

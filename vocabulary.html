@@ -12,33 +12,12 @@
             sotd.removeChild(p);
         }
 
-        // Note: The vocabulary URL must be adapted for the given environment!!!!
-        function massageSVGLinks(utils, content, url) {
-            const retval = content
-                .replace(/xlink:href/g, 'href')
-                .replace(/href="https:\/\/w3id.org\/security#/g, 'href="#');
-
-            return retval;
-        }
-
     </script>
     <script class="remove">
         var respecConfig = {
-            localBiblio: {
-                "VC-DATA-MODEL": {
-                    title: "Verifiable Credentials Data Model v2.0",
-                    href: "https://www.w3.org/TR/vc-data-model-2.0/",
-                    authors: [
-                        "Manu Sporny", "Grant Noble", "Dave Longley",
-                        "Daniel C. Burnett", "Brent Zundel", "Kyle Den Hartog",
-                        "Orie Steel", "Michael B. Jones", "Gabe Cohen"
-                    ],
-                    publisher: "W3C"
-                }
-            },
             specStatus: "base",
-            shortName: "2018/credentials/",
-            thisVersion: "https://www.w3.org/2018/credentials/",
+            shortName: "epub-annotation",
+            thisVersion: "https://www.w3.org/ns/epub/annotation/vocabulary.html",
             doJsonLd: true,
             editors: [{
                 name: "Ivan Herman",
@@ -161,7 +140,7 @@
         </p>
         <dl>
             <dt>Published:</dt>
-            <dd><time property="dc:date" id="time">2026-01-06</time></dd>
+            <dd><time property="dc:date" id="time">2026-01-07</time></dd>
             <dt>Version Info:</dt>
             <dd>1.0</dd>
             <dt id="see_also">See Also: <a href="https://w3c.github.io/epub-specs/epub34/annotations/">https://w3c.github.io/epub-specs/epub34/annotations/</a></dt>
@@ -333,29 +312,6 @@
                     <dd><a href="https://www.w3.org/ns/epub/anno.jsonld"><code>https://www.w3.org/ns/epub/anno.jsonld</code></a></dd>
                 </dl>
             </section>
-            <section id="Motivation">
-                <h4><code>Motivation</code></h4>
-                <p><em>A restrictive subset of Open Annotation's Motivations</em></p>
-                <p>See the <a href="https://w3c.github.io/epub-specs/epub34/annotations/#1-1-annotation-object">formal definition of the term</a>.</p>
-                <dl class="terms">
-                    <dt>Subclass of:</dt>
-                    <dd><a href="http://www.w3.org/ns/oa#Motivation"><code>oa:Motivation</code></a></dd>
-                </dl>
-                <dl class="terms">
-                    <dt>Consists of:</dt>
-                    <dd>{ <a href="http://www.w3.org/ns/oa#bookmarking"><code>oa:bookmarking</code></a>, <a
-                            href="http://www.w3.org/ns/oa#commenting"><code>oa:commenting</code></a>, <a
-                            href="http://www.w3.org/ns/oa#highlighting"><code>oa:highlighting</code></a> }</dd>
-                </dl>
-                <dl class="terms">
-                    <dt>Range of:</dt>
-                    <dd><a href="#motivatedBy"><code>motivatedBy</code></a></dd>
-                </dl>
-                <dl class="terms">
-                    <dt>Relevant <code>@context</code>:</dt>
-                    <dd><a href="https://www.w3.org/ns/epub/anno.jsonld"><code>https://www.w3.org/ns/epub/anno.jsonld</code></a></dd>
-                </dl>
-            </section>
             <section id="Selector">
                 <h4><code>Selector</code></h4>
                 <p><em>A restrictive subset of selectors, used in EPUB</em></p>
@@ -401,10 +357,10 @@
                 <p><em>Information on the publication</em></p>
                 <p>See the <a href="https://w3c.github.io/epub-specs/epub34/annotations/#2-annotation-set">formal definition of the term</a>.</p>
                 <dl class="terms">
-                    <dt>Range:</dt>
-                    <dd><a href="#About"><code>About</code></a></dd>
                     <dt>Domain:</dt>
                     <dd><a href="#AnnotationSet"><code>AnnotationSet</code></a></dd>
+                    <dt>Range:</dt>
+                    <dd><a href="#About"><code>About</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -422,10 +378,10 @@
                     <dd><span><a href="http://www.w3.org/ns/oa#hasBody"><code>oa:hasBody</code></a></span><br></dd>
                 </dl>
                 <dl class="terms">
-                    <dt>Range:</dt>
-                    <dd><a href="#Body"><code>Body</code></a></dd>
                     <dt>Domain:</dt>
                     <dd><a href="#Annotation"><code>Annotation</code></a></dd>
+                    <dt>Range:</dt>
+                    <dd><a href="#Body"><code>Body</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -437,8 +393,6 @@
                 <p><em>Color</em></p>
                 <p>See the <a href="https://w3c.github.io/epub-specs/epub34/annotations/#1-4-body">formal definition of the term</a>.</p>
                 <dl class="terms">
-                    <dt>Range:</dt>
-                    <dd><a href="#Color"><code>Color</code></a></dd>
                     <dt>Domain:</dt>
                     <dd><a href="#Body"><code>Body</code></a></dd>
                 </dl>
@@ -472,10 +426,10 @@
                 <div>The context file "shadows" the <code>generator</code> term in the Web Annotation context file, restricting its range; see formal definition for the
                     restrictions.</div>
                 <dl class="terms">
-                    <dt>Range:</dt>
-                    <dd><a href="#Generator"><code>Generator</code></a></dd>
                     <dt>Domain:</dt>
                     <dd><a href="#AnnotationSet"><code>AnnotationSet</code></a></dd>
+                    <dt>Range:</dt>
+                    <dd><a href="#Generator"><code>Generator</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -487,8 +441,6 @@
                 <p><em>Highlight</em></p>
                 <p>See the <a href="https://w3c.github.io/epub-specs/epub34/annotations/#1-4-body">formal definition of the term</a>.</p>
                 <dl class="terms">
-                    <dt>Range:</dt>
-                    <dd><a href="#Highlight"><code>Highlight</code></a></dd>
                     <dt>Domain:</dt>
                     <dd><a href="#Body"><code>Body</code></a></dd>
                 </dl>
@@ -517,13 +469,13 @@
                 <p><em>The reference to the set of annotations</em></p>
                 <p>See the <a href="https://w3c.github.io/epub-specs/epub34/annotations/#2-annotation-set">formal definition of the term</a>.</p>
                 <dl class="terms">
+                    <dt>Domain:</dt>
+                    <dd><a href="#AnnotationSet"><code>AnnotationSet</code></a></dd>
                     <dt>Range:</dt>
                     <dd><a href="#Annotation"><code>Annotation</code></a>
                         <p>In a JSON-LD representation, values to this property are supposed to be represented in the form of a JSON array, even if there is just a single value.
                         </p>
                     </dd>
-                    <dt>Domain:</dt>
-                    <dd><a href="#AnnotationSet"><code>AnnotationSet</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -535,10 +487,10 @@
                 <p><em>Meta</em></p>
                 <p>See the <a href="https://w3c.github.io/epub-specs/epub34/annotations/#1-3-target">formal definition of the term</a>.</p>
                 <dl class="terms">
-                    <dt>Range:</dt>
-                    <dd><a href="#Meta"><code>Meta</code></a></dd>
                     <dt>Domain:</dt>
                     <dd><a href="#Target"><code>Target</code></a></dd>
+                    <dt>Range:</dt>
+                    <dd><a href="#Meta"><code>Meta</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -556,10 +508,15 @@
                     <dd><span><a href="http://www.w3.org/ns/oa#motivatedBy"><code>oa:motivatedBy</code></a></span><br></dd>
                 </dl>
                 <dl class="terms">
-                    <dt>Range:</dt>
-                    <dd><a href="#Motivation"><code>Motivation</code></a></dd>
                     <dt>Domain:</dt>
                     <dd><a href="#Annotation"><code>Annotation</code></a></dd>
+                    <dt>Range:</dt>
+                    <dd><a href="https://www.w3.org/ns/epub/annotation/vocabulary#Motivation"><code>ea:Motivation</code></a></dd>
+                </dl>
+                <dl class="terms">
+                    <dt>Value may be one of:</dt>
+                    <dd><a href="http://www.w3.org/ns/oa#bookmarking"><code>oa:bookmarking</code></a>, <a href="http://www.w3.org/ns/oa#commenting"><code>oa:commenting</code></a>,
+                        <a href="http://www.w3.org/ns/oa#highlighting"><code>oa:highlighting</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -576,10 +533,10 @@
                     <dd><span><a href="http://xmlns.com/foaf/0.1/name"><code>foaf:name</code></a></span><br></dd>
                 </dl>
                 <dl class="terms">
-                    <dt>Range:</dt>
-                    <dd><code>xsd:string</code></dd>
                     <dt>Domain:</dt>
                     <dd><a href="#Creator"><code>Creator</code></a> ⊔&nbsp;<a href="#Generator"><code>Generator</code></a></dd>
+                    <dt>Range:</dt>
+                    <dd><code>xsd:string</code></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -630,13 +587,13 @@
                 <p><em>Tags</em></p>
                 <p>See the <a href="https://w3c.github.io/epub-specs/epub34/annotations/#1-4-body">formal definition of the term</a>.</p>
                 <dl class="terms">
+                    <dt>Domain:</dt>
+                    <dd><a href="#Body"><code>Body</code></a></dd>
                     <dt>Range:</dt>
                     <dd><code>xsd:string</code>
                         <p>In a JSON-LD representation, values to this property are supposed to be represented in the form of a JSON array, even if there is just a single value.
                         </p>
                     </dd>
-                    <dt>Domain:</dt>
-                    <dd><a href="#Body"><code>Body</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -654,10 +611,10 @@
                     <dd><span><a href="http://www.w3.org/ns/oa#hasTarget"><code>oa:hasTarget</code></a></span><br></dd>
                 </dl>
                 <dl class="terms">
-                    <dt>Range:</dt>
-                    <dd><a href="#Target"><code>Target</code></a></dd>
                     <dt>Domain:</dt>
                     <dd><a href="#Annotation"><code>Annotation</code></a></dd>
+                    <dt>Range:</dt>
+                    <dd><a href="#Target"><code>Target</code></a></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -670,10 +627,10 @@
                 <p>See the <a href="https://w3c.github.io/epub-specs/epub34/annotations/#2-annotation-set">formal definition of the term</a>.</p>
                 <p>In the generated JSON-LD context file this term appears as "<code>title</code>".</p>
                 <dl class="terms">
-                    <dt>Range:</dt>
-                    <dd><code>xsd:string</code></dd>
                     <dt>Domain:</dt>
                     <dd><a href="#AnnotationSet"><code>AnnotationSet</code></a></dd>
+                    <dt>Range:</dt>
+                    <dd><code>xsd:string</code></dd>
                 </dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
@@ -682,45 +639,111 @@
             </section>
         </section>
 
-        <section id="datatype_definitions" class="term_definitions">
-            <h2>Datatype definitions</h2>
-            <p>The following are datatype definitions in the <code>ea</code> namespace.</p>
-            <section id="Color">
-                <h4><code>Color</code></h4>
-                <p><em>Color</em></p>
+
+        <section id="individual_definitions" class="term_definitions">
+            <h2>Definitions for individuals</h2>
+            <p>The following are definitions for individuals in the <code>ea</code> namespace.</p>
+            <section id="pink">
+                <h4><code>pink</code></h4>
+                <p><em>Pink color for selection color</em></p>
                 <p>See the <a href="https://w3c.github.io/epub-specs/epub34/annotations/#2-annotation-set">formal definition of the term</a>.</p>
-                <dl class="terms">
-                    <dt>Restricted to: </dt>
-                    <dd>"pink", "orange", "yellow", "green", "blue", "purple"</dd>
-                </dl>
-                <dl class="terms">
-                    <dt>Range of:</dt>
-                    <dd><a href="#color"><code>color</code></a></dd>
-                </dl>
+                <dl class="terms"></dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
                     <dd><a href="https://www.w3.org/ns/epub/anno.jsonld"><code>https://www.w3.org/ns/epub/anno.jsonld</code></a></dd>
                 </dl>
             </section>
-            <section id="Highlight">
-                <h4><code>Highlight</code></h4>
-                <p><em>Highlight</em></p>
+            <section id="orange">
+                <h4><code>orange</code></h4>
+                <p><em>Orange color for selection color</em></p>
                 <p>See the <a href="https://w3c.github.io/epub-specs/epub34/annotations/#2-annotation-set">formal definition of the term</a>.</p>
+                <dl class="terms"></dl>
                 <dl class="terms">
-                    <dt>Restricted to: </dt>
-                    <dd>"solid", "underline", "strikethrough", "outline"</dd>
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://www.w3.org/ns/epub/anno.jsonld"><code>https://www.w3.org/ns/epub/anno.jsonld</code></a></dd>
                 </dl>
+            </section>
+            <section id="yellow">
+                <h4><code>yellow</code></h4>
+                <p><em>Yellow color for selection color</em></p>
+                <p>See the <a href="https://w3c.github.io/epub-specs/epub34/annotations/#2-annotation-set">formal definition of the term</a>.</p>
+                <dl class="terms"></dl>
                 <dl class="terms">
-                    <dt>Range of:</dt>
-                    <dd><a href="#highlight"><code>highlight</code></a></dd>
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://www.w3.org/ns/epub/anno.jsonld"><code>https://www.w3.org/ns/epub/anno.jsonld</code></a></dd>
                 </dl>
+            </section>
+            <section id="green">
+                <h4><code>green</code></h4>
+                <p><em>Green color for selection color</em></p>
+                <p>See the <a href="https://w3c.github.io/epub-specs/epub34/annotations/#2-annotation-set">formal definition of the term</a>.</p>
+                <dl class="terms"></dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://www.w3.org/ns/epub/anno.jsonld"><code>https://www.w3.org/ns/epub/anno.jsonld</code></a></dd>
+                </dl>
+            </section>
+            <section id="blue">
+                <h4><code>blue</code></h4>
+                <p><em>Blue color for selection color</em></p>
+                <p>See the <a href="https://w3c.github.io/epub-specs/epub34/annotations/#2-annotation-set">formal definition of the term</a>.</p>
+                <dl class="terms"></dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://www.w3.org/ns/epub/anno.jsonld"><code>https://www.w3.org/ns/epub/anno.jsonld</code></a></dd>
+                </dl>
+            </section>
+            <section id="purple">
+                <h4><code>purple</code></h4>
+                <p><em>Purple color for selection color</em></p>
+                <p>See the <a href="https://w3c.github.io/epub-specs/epub34/annotations/#2-annotation-set">formal definition of the term</a>.</p>
+                <dl class="terms"></dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://www.w3.org/ns/epub/anno.jsonld"><code>https://www.w3.org/ns/epub/anno.jsonld</code></a></dd>
+                </dl>
+            </section>
+            <section id="solid">
+                <h4><code>solid</code></h4>
+                <p><em>Selection highlight solid</em></p>
+                <p>See the <a href="https://w3c.github.io/epub-specs/epub34/annotations/#2-annotation-set">formal definition of the term</a>.</p>
+                <dl class="terms"></dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://www.w3.org/ns/epub/anno.jsonld"><code>https://www.w3.org/ns/epub/anno.jsonld</code></a></dd>
+                </dl>
+            </section>
+            <section id="underline">
+                <h4><code>underline</code></h4>
+                <p><em>Selection highlight underline</em></p>
+                <p>See the <a href="https://w3c.github.io/epub-specs/epub34/annotations/#2-annotation-set">formal definition of the term</a>.</p>
+                <dl class="terms"></dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://www.w3.org/ns/epub/anno.jsonld"><code>https://www.w3.org/ns/epub/anno.jsonld</code></a></dd>
+                </dl>
+            </section>
+            <section id="strikethrough">
+                <h4><code>strikethrough</code></h4>
+                <p><em>Selection highlight strikethrough</em></p>
+                <p>See the <a href="https://w3c.github.io/epub-specs/epub34/annotations/#2-annotation-set">formal definition of the term</a>.</p>
+                <dl class="terms"></dl>
+                <dl class="terms">
+                    <dt>Relevant <code>@context</code>:</dt>
+                    <dd><a href="https://www.w3.org/ns/epub/anno.jsonld"><code>https://www.w3.org/ns/epub/anno.jsonld</code></a></dd>
+                </dl>
+            </section>
+            <section id="outline">
+                <h4><code>outline</code></h4>
+                <p><em>Selection highlight outline</em></p>
+                <p>See the <a href="https://w3c.github.io/epub-specs/epub34/annotations/#2-annotation-set">formal definition of the term</a>.</p>
+                <dl class="terms"></dl>
                 <dl class="terms">
                     <dt>Relevant <code>@context</code>:</dt>
                     <dd><a href="https://www.w3.org/ns/epub/anno.jsonld"><code>https://www.w3.org/ns/epub/anno.jsonld</code></a></dd>
                 </dl>
             </section>
         </section>
-
 
     </section>
 

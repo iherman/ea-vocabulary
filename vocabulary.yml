@@ -3,6 +3,8 @@
 #
 # For individual restrictions, the OA approach was to use individuals in a class; for color/highlight the somewhat simpler
 # approach of using string restrictions was chosen. We may consider doing the same as OA for consistency...
+# Update 2026.01.07: the vocabulary uses individuals; this restriction can be reflected in the JSON-LD context, which is a
+# plus
 
 json_ld:
     alias:
@@ -75,12 +77,6 @@ class:
       label: Information about the tools generating the annotations
       defined_by: https://w3c.github.io/epub-specs/epub34/annotations/#2-1-generator
 
-    - id: Motivation
-      label: A restrictive subset of Open Annotation's Motivations
-      upper_value: oa:Motivation
-      one_of: [oa:bookmarking, oa:commenting, oa:highlighting]
-      defined_by: https://w3c.github.io/epub-specs/epub34/annotations/#1-1-annotation-object
-
     - id: Selector
       label: A restrictive subset of selectors, used in EPUB
       upper_value: [oa:FragmentSelector, oa:CssSelector, oa:TextQuoteSelector]
@@ -110,7 +106,7 @@ property:
 
     - id: color
       domain: Body
-      range: Color
+      one_of: [pink, orange, yellow, green, blue, purple ]
       defined_by: https://w3c.github.io/epub-specs/epub34/annotations/#1-4-body
 
     - id: creator
@@ -128,7 +124,7 @@ property:
 
     - id: highlight
       domain: Body
-      range: Highlight
+      one_of: [solid, underline, strikethrough, outline]
       defined_by: https://w3c.github.io/epub-specs/epub34/annotations/#1-4-body
 
     - id: foaf:homepage
@@ -154,6 +150,7 @@ property:
       known_as: motivation
       domain: Annotation
       range: Motivation
+      one_of: [oa:bookmarking, oa:commenting, oa:highlighting]
       defined_by: https://w3c.github.io/epub-specs/epub34/annotations/#1-1-annotation-object
       comment: The context file "shadows" the <code>body</code> term in the Web Annotation context file, restricting its range.
 
@@ -202,14 +199,44 @@ property:
       known_as: title
       defined_by: https://w3c.github.io/epub-specs/epub34/annotations/#2-annotation-set
 
-datatype:
-    - id: Color
-      type: xsd:string
-      one_of: [pink, orange, yellow, green, blue, purple ]
+individual:
+    - id: pink
+      label: Pink color for selection color
       defined_by: https://w3c.github.io/epub-specs/epub34/annotations/#2-annotation-set
 
-    - id: Highlight
-      type: xsd:string
-      one_of: [solid, underline, strikethrough, outline]
+    - id: orange
+      label: Orange color for selection color
+      defined_by: https://w3c.github.io/epub-specs/epub34/annotations/#2-annotation-set
+
+    - id: yellow
+      label: Yellow color for selection color
+      defined_by: https://w3c.github.io/epub-specs/epub34/annotations/#2-annotation-set
+
+    - id: green
+      label: Green color for selection color
+      defined_by: https://w3c.github.io/epub-specs/epub34/annotations/#2-annotation-set
+
+    - id: blue
+      label: Blue color for selection color
+      defined_by: https://w3c.github.io/epub-specs/epub34/annotations/#2-annotation-set
+
+    - id: purple
+      label: Purple color for selection color
+      defined_by: https://w3c.github.io/epub-specs/epub34/annotations/#2-annotation-set
+
+    - id: solid
+      label: Selection highlight solid
+      defined_by: https://w3c.github.io/epub-specs/epub34/annotations/#2-annotation-set
+
+    - id: underline
+      label: Selection highlight underline
+      defined_by: https://w3c.github.io/epub-specs/epub34/annotations/#2-annotation-set
+
+    - id: strikethrough
+      label: Selection highlight strikethrough
+      defined_by: https://w3c.github.io/epub-specs/epub34/annotations/#2-annotation-set
+
+    - id: outline
+      label: Selection highlight outline
       defined_by: https://w3c.github.io/epub-specs/epub34/annotations/#2-annotation-set
 

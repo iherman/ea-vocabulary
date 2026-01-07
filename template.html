@@ -10,33 +10,12 @@
           sotd.removeChild(p);
       }
 
-      // Note: The vocabulary URL must be adapted for the given environment!!!!
-      function massageSVGLinks(utils, content, url) {
-        const retval = content
-          .replace(/xlink:href/g, 'href')
-          .replace(/href="https:\/\/w3id.org\/security#/g, 'href="#');
-
-        return retval;
-      }
-
     </script>
     <script class="remove">
       var respecConfig = {
-        localBiblio: {
-          "VC-DATA-MODEL": {
-            title: "Verifiable Credentials Data Model v2.0",
-            href: "https://www.w3.org/TR/vc-data-model-2.0/",
-            authors: [
-              "Manu Sporny", "Grant Noble", "Dave Longley",
-              "Daniel C. Burnett", "Brent Zundel", "Kyle Den Hartog",
-              "Orie Steel", "Michael B. Jones", "Gabe Cohen"
-            ],
-            publisher: "W3C"
-          }
-        },
         specStatus:  "base",
-        shortName:   "2018/credentials/",
-        thisVersion: "https://www.w3.org/2018/credentials/",
+        shortName:   "epub-annotation",
+        thisVersion: "https://www.w3.org/ns/epub/annotation/vocabulary.html",
         doJsonLd:    true,
         editors: [{
           name:       "Ivan Herman",
