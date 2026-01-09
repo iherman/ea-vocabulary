@@ -3,19 +3,11 @@
     <meta charset='utf-8'/>
     <title></title>
     <script class="remove" src="https://www.w3.org/Tools/respec/respec-w3c"></script>
-    <script>
-      function remove_status_remark() {
-          const sotd = document.getElementById("sotd");
-          const p = sotd.getElementsByTagName('p')[0];
-          sotd.removeChild(p);
-      }
-
-    </script>
     <script class="remove">
       var respecConfig = {
-        specStatus:  "base",
-        shortName:   "epub-annotation",
-        thisVersion: "https://www.w3.org/ns/epub/annotation/vocabulary.html",
+        specStatus:  "ED",
+        shortName:   "epub-ann-vocabulary",
+        edDraftURI: "https://w3c.github.io/epub-specs/wg-notes/epub-annotations-vocab/",
         doJsonLd:    true,
         editors: [{
           name:       "Ivan Herman",
@@ -31,15 +23,32 @@
           companyURL: "https://www.edrlab.org",
           "w3cid": 91888
        }],
-        alternateFormats: [
-          {uri: "vocabulary.ttl", label: "Turtle"},
-          {uri: "vocabulary.jsonld", label: "JSON-LD"}
-        ],
-        postProcess : [remove_status_remark],
         inlineCSS: true,
         doRDFa: false,
         noIDLIn: true,
-        noLegacyStyle: false
+        noRecTrack: true,
+        noLegacyStyle: false,
+        github: {
+            repoURL: "https://github.com/w3c/epub-specs",
+            branch: "main"
+        },
+        group: "pm",
+        xref: {
+            profile: "web-platform",
+            specs: ["epub-34"]
+        },
+        localBiblio: {
+            "epub-ann": {
+                "authors": [
+                    "Laurent Le Meur"
+                ],
+                "title": "EPUB Annotations 3.4",
+                "href": "https://www.w3.org/TR/epub-ann",
+                "date": "09 January 2026",
+                "publisher": "W3C"
+            },
+        }
+
       };
     </script>
     <style type="text/css">
@@ -115,33 +124,19 @@
   </head>
   <body>
     <section id="abstract">
-      <p>This document describes the <span property="dc:title" id="ontology_title"></span>, i.e.,
-         the <span property="dc:description" id="description"></span>.
+      <p>This document defines the vocabulary for the [[[epub-ann]]] specification. RDF versions of the vocabulary definition exist in
+        <a rel="alternate" id="alt-turtle">Turtle</a> and <a rel="alternate" id="alt-jsonld">JSON-LD</a>.
       </p>
-      <p>Alternate versions of the vocabulary definition exist in
-        <a rel="alternate" id="alt-turtle">Turtle</a> and
-        <a rel="alternate" id="alt-jsonld">JSON-LD</a>.
-      </p>
-      <dl>
-        <dt>Published:</dt><dd><time property="dc:date" id="time"></time></dd>
-        <dt>Version Info:</dt>
-        <dd>1.0</dd>
-        <dt id="see_also">See Also: </dt>
-       </dl>
     </section>
     <section id="sotd">
-      <p>
-        This vocabulary has been defined by the <a href="https://www.w3.org/groups/wg/pm/">W3C Publishing Maintenance Working Group</a> and provides
-        the official RDFS vocabulary for <a href="https://w3c.github.io/epub-specs/epub34/annotations/">EPUB Annotations 3.4</a>.
-        Comments regarding this document are welcome. Please file issues
-        directly on <a href="https://github.com/w3c/epub-specs/">GitHub</a>.
+      <p>This document describes the <span property="dc:title" id="ontology_title"></span>, i.e., an <span property="dc:description" id="description"></span>.
+        <!-- This vocabulary has been defined by the <a href="https://www.w3.org/groups/wg/pm/">W3C Publishing Maintenance Working Group</a> and provides
+        the [[[rdf-schema]]] [[rdf-schema]] vocabulary for [[[epub-ann]]] [[epub-ann]].
+        Comments regarding this vocabulary are welcome. Please file issues
+        directly on <a href="https://github.com/w3c/epub-specs/">GitHub</a>. -->
       </p>
     </section>
     <section id="conformance">
-      <h2>Specification of terms</h2>
-
-
-
     </section>
     <section>
       <h2>Namespaces</h2>
