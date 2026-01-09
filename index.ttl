@@ -13,7 +13,7 @@
 # Ontology definition
 ea: a owl:Ontology ;
     dc:title """EPUB Annotations Vocabulary"""@en ;
-    dc:description """RDFS [[rdf-schema]] vocabulary formalizing the terms defined in the [[[epub-ann]]] specification. The vocabulary is a "profile" of the W3C [[[annotation-vocab]]] specification"""^^rdf:HTML ;
+    dc:description """RDFS [[rdf-schema]] vocabulary formalizing the terms defined in the [[[epub-ann]]] specification. The vocabulary is a "profile" of the W3C [[[annotation-vocab]]]"""^^rdf:HTML ;
     rdfs:seeAlso <https://www.w3.org/TR/epub-ann-vocab/> ;
     dc:date "2026-01-09"^^xsd:date ;
 .
@@ -169,7 +169,7 @@ ea:Annotation a rdfs:Class ;
 
 ea:AnnotationSet a rdfs:Class ;
     rdfs:label "Set of annotations" ;
-    rdfs:isDefinedBy <https://www.w3.org/TR/epub-ann/#dfn-annotationset-object>, <http://www.w3.org/ns/ea#> ;
+    rdfs:isDefinedBy <https://www.w3.org/TR/epub-ann/#dfn-annotationset>, <http://www.w3.org/ns/ea#> ;
     vs:term_status "stable" ;
 .
 

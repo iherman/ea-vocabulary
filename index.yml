@@ -48,7 +48,7 @@ class:
 
     - id: AnnotationSet
       label: Set of annotations
-      defined_by: https://www.w3.org/TR/epub-ann/#dfn-annotationset-object
+      defined_by: https://www.w3.org/TR/epub-ann/#dfn-annotationset
 
     - id: Body
       label: Body of an EPUB Annotation

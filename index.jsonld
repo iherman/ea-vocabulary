@@ -75,7 +75,7 @@
     "@language": "en"
   },
   "dc:description": {
-    "@value": "RDFS [[rdf-schema]] vocabulary formalizing the terms defined in the [[[epub-ann]]] specification. The vocabulary is a \"profile\" of the W3C [[[annotation-vocab]]] specification",
+    "@value": "RDFS [[rdf-schema]] vocabulary formalizing the terms defined in the [[[epub-ann]]] specification. The vocabulary is a \"profile\" of the W3C [[[annotation-vocab]]]",
     "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
   },
   "rdfs:seeAlso": "https://www.w3.org/TR/epub-ann-vocab/",
@@ -342,7 +342,7 @@
     "@id": "ea:AnnotationSet",
     "@type": "rdfs:Class",
     "rdfs:label": "Set of annotations",
-    "rdfs:isDefinedBy": "https://www.w3.org/TR/epub-ann/#dfn-annotationset-object",
+    "rdfs:isDefinedBy": "https://www.w3.org/TR/epub-ann/#dfn-annotationset",
     "vs:term_status": "stable",
     "mentioned": [{
       "@id": "https://www.w3.org/ns/epub_anno.jsonld",
