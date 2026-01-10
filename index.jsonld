@@ -79,7 +79,7 @@
     "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
   },
   "rdfs:seeAlso": "https://www.w3.org/TR/epub-ann-vocab/",
-  "dc:date": "2026-01-09",
+  "dc:date": "2026-01-10",
   "rdfs_properties": [{
     "@id": "ea:about",
     "@type": ["rdf:Property", "owl:ObjectProperty"],
@@ -89,7 +89,7 @@
     "rdfs:isDefinedBy": "https://www.w3.org/TR/epub-ann/#dfn-about",
     "vs:term_status": "stable",
     "mentioned": [{
-      "@id": "https://www.w3.org/ns/epub_anno.jsonld",
+      "@id": "https://www.w3.org/ns/epub-anno.jsonld",
       "@type": "jsonld:Context"
     }]
   }, {
@@ -106,7 +106,7 @@
     "rdfs:isDefinedBy": "https://www.w3.org/TR/epub-ann/#dfn-body",
     "vs:term_status": "stable",
     "mentioned": [{
-      "@id": "https://www.w3.org/ns/epub_anno.jsonld",
+      "@id": "https://www.w3.org/ns/epub-anno.jsonld",
       "@type": "jsonld:Context"
     }]
   }, {
@@ -121,7 +121,7 @@
     "rdfs:isDefinedBy": "https://www.w3.org/TR/epub-ann/#dfn-color",
     "vs:term_status": "stable",
     "mentioned": [{
-      "@id": "https://www.w3.org/ns/epub_anno.jsonld",
+      "@id": "https://www.w3.org/ns/epub-anno.jsonld",
       "@type": "jsonld:Context"
     }]
   }, {
@@ -137,7 +137,7 @@
     "rdfs:isDefinedBy": "https://www.w3.org/TR/epub-ann/#dfn-creator",
     "vs:term_status": "stable",
     "mentioned": [{
-      "@id": "https://www.w3.org/ns/epub_anno.jsonld",
+      "@id": "https://www.w3.org/ns/epub-anno.jsonld",
       "@type": "jsonld:Context"
     }]
   }, {
@@ -153,7 +153,7 @@
     "rdfs:isDefinedBy": "https://www.w3.org/TR/epub-ann/#dfn-generator",
     "vs:term_status": "stable",
     "mentioned": [{
-      "@id": "https://www.w3.org/ns/epub_anno.jsonld",
+      "@id": "https://www.w3.org/ns/epub-anno.jsonld",
       "@type": "jsonld:Context"
     }]
   }, {
@@ -168,7 +168,7 @@
     "rdfs:isDefinedBy": "https://www.w3.org/TR/epub-ann/#dfn-highlight",
     "vs:term_status": "stable",
     "mentioned": [{
-      "@id": "https://www.w3.org/ns/epub_anno.jsonld",
+      "@id": "https://www.w3.org/ns/epub-anno.jsonld",
       "@type": "jsonld:Context"
     }]
   }, {
@@ -180,7 +180,7 @@
     "rdfs:isDefinedBy": "https://www.w3.org/TR/epub-ann/#dfn-items",
     "vs:term_status": "stable",
     "mentioned": [{
-      "@id": "https://www.w3.org/ns/epub_anno.jsonld",
+      "@id": "https://www.w3.org/ns/epub-anno.jsonld",
       "@type": "jsonld:Context"
     }]
   }, {
@@ -192,7 +192,7 @@
     "rdfs:isDefinedBy": "https://www.w3.org/TR/epub-ann/#dfn-meta",
     "vs:term_status": "stable",
     "mentioned": [{
-      "@id": "https://www.w3.org/ns/epub_anno.jsonld",
+      "@id": "https://www.w3.org/ns/epub-anno.jsonld",
       "@type": "jsonld:Context"
     }]
   }, {
@@ -212,7 +212,7 @@
     "rdfs:isDefinedBy": "https://www.w3.org/TR/epub-ann/#dfn-motivation",
     "vs:term_status": "stable",
     "mentioned": [{
-      "@id": "https://www.w3.org/ns/epub_anno.jsonld",
+      "@id": "https://www.w3.org/ns/epub-anno.jsonld",
       "@type": "jsonld:Context"
     }]
   }, {
@@ -232,7 +232,7 @@
     "rdfs:isDefinedBy": "https://www.w3.org/TR/epub-ann-vocab/dfn-name",
     "vs:term_status": "stable",
     "mentioned": [{
-      "@id": "https://www.w3.org/ns/epub_anno.jsonld",
+      "@id": "https://www.w3.org/ns/epub-anno.jsonld",
       "@type": "jsonld:Context"
     }]
   }, {
@@ -248,7 +248,7 @@
     "rdfs:isDefinedBy": "https://www.w3.org/TR/epub-ann/#dfn-selector",
     "vs:term_status": "stable",
     "mentioned": [{
-      "@id": "https://www.w3.org/ns/epub_anno.jsonld",
+      "@id": "https://www.w3.org/ns/epub-anno.jsonld",
       "@type": "jsonld:Context"
     }]
   }, {
@@ -264,7 +264,7 @@
     "rdfs:isDefinedBy": "https://www.w3.org/TR/epub-ann/#dfn-source",
     "vs:term_status": "stable",
     "mentioned": [{
-      "@id": "https://www.w3.org/ns/epub_anno.jsonld",
+      "@id": "https://www.w3.org/ns/epub-anno.jsonld",
       "@type": "jsonld:Context"
     }]
   }, {
@@ -276,7 +276,7 @@
     "rdfs:isDefinedBy": "https://www.w3.org/TR/epub-ann/#dfn-tags",
     "vs:term_status": "stable",
     "mentioned": [{
-      "@id": "https://www.w3.org/ns/epub_anno.jsonld",
+      "@id": "https://www.w3.org/ns/epub-anno.jsonld",
       "@type": "jsonld:Context"
     }]
   }, {
@@ -293,7 +293,7 @@
     "rdfs:isDefinedBy": "https://www.w3.org/TR/epub-ann/#dfn-target",
     "vs:term_status": "stable",
     "mentioned": [{
-      "@id": "https://www.w3.org/ns/epub_anno.jsonld",
+      "@id": "https://www.w3.org/ns/epub-anno.jsonld",
       "@type": "jsonld:Context"
     }]
   }, {
@@ -305,14 +305,14 @@
     "rdfs:isDefinedBy": "https://www.w3.org/TR/epub-ann/#dfn-title",
     "vs:term_status": "stable",
     "mentioned": [{
-      "@id": "https://www.w3.org/ns/epub_anno.jsonld",
+      "@id": "https://www.w3.org/ns/epub-anno.jsonld",
       "@type": "jsonld:Context"
     }]
   }],
   "rdfs_classes": [{
     "@id": "ea:About",
     "@type": "rdfs:Class",
-    "rdfs:label": "Information about the publication",
+    "rdfs:label": "Information about the EPUB publication",
     "rdfs:comment": {
       "@value": "<div>(Externally defined) Dublin Core terms are used with this class, retaining the prefixes (to be in line with the EPUB Package Document)</div>",
       "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML"
@@ -320,7 +320,7 @@
     "rdfs:isDefinedBy": "https://www.w3.org/TR/epub-ann/#dfn-about-object",
     "vs:term_status": "stable",
     "mentioned": [{
-      "@id": "https://www.w3.org/ns/epub_anno.jsonld",
+      "@id": "https://www.w3.org/ns/epub-anno.jsonld",
       "@type": "jsonld:Context"
     }]
   }, {
@@ -335,7 +335,7 @@
     "rdfs:isDefinedBy": "https://www.w3.org/TR/epub-ann/#dfn-annotation-object",
     "vs:term_status": "stable",
     "mentioned": [{
-      "@id": "https://www.w3.org/ns/epub_anno.jsonld",
+      "@id": "https://www.w3.org/ns/epub-anno.jsonld",
       "@type": "jsonld:Context"
     }]
   }, {
@@ -345,7 +345,7 @@
     "rdfs:isDefinedBy": "https://www.w3.org/TR/epub-ann/#dfn-annotationset",
     "vs:term_status": "stable",
     "mentioned": [{
-      "@id": "https://www.w3.org/ns/epub_anno.jsonld",
+      "@id": "https://www.w3.org/ns/epub-anno.jsonld",
       "@type": "jsonld:Context"
     }]
   }, {
@@ -360,7 +360,7 @@
     "rdfs:isDefinedBy": "https://www.w3.org/TR/epub-ann/#dfn-body-object",
     "vs:term_status": "stable",
     "mentioned": [{
-      "@id": "https://www.w3.org/ns/epub_anno.jsonld",
+      "@id": "https://www.w3.org/ns/epub-anno.jsonld",
       "@type": "jsonld:Context"
     }]
   }, {
@@ -378,7 +378,7 @@
     "rdfs:isDefinedBy": "https://www.w3.org/TR/epub-ann/#dfn-creator-object",
     "vs:term_status": "stable",
     "mentioned": [{
-      "@id": "https://www.w3.org/ns/epub_anno.jsonld",
+      "@id": "https://www.w3.org/ns/epub-anno.jsonld",
       "@type": "jsonld:Context"
     }]
   }, {
@@ -392,7 +392,7 @@
     "rdfs:isDefinedBy": "https://www.w3.org/TR/epub-ann/#dfn-target-object",
     "vs:term_status": "stable",
     "mentioned": [{
-      "@id": "https://www.w3.org/ns/epub_anno.jsonld",
+      "@id": "https://www.w3.org/ns/epub-anno.jsonld",
       "@type": "jsonld:Context"
     }]
   }, {
@@ -402,7 +402,7 @@
     "rdfs:isDefinedBy": "https://www.w3.org/TR/epub-ann/#dfn-generator-object",
     "vs:term_status": "stable",
     "mentioned": [{
-      "@id": "https://www.w3.org/ns/epub_anno.jsonld",
+      "@id": "https://www.w3.org/ns/epub-anno.jsonld",
       "@type": "jsonld:Context"
     }]
   }, {
@@ -420,7 +420,7 @@
     "rdfs:isDefinedBy": "https://www.w3.org/TR/epub-ann/#dfn-target-object",
     "vs:term_status": "stable",
     "mentioned": [{
-      "@id": "https://www.w3.org/ns/epub_anno.jsonld",
+      "@id": "https://www.w3.org/ns/epub-anno.jsonld",
       "@type": "jsonld:Context"
     }]
   }, {
@@ -430,7 +430,7 @@
     "rdfs:isDefinedBy": "https://www.w3.org/TR/epub-ann/#dfn-target-object",
     "vs:term_status": "stable",
     "mentioned": [{
-      "@id": "https://www.w3.org/ns/epub_anno.jsonld",
+      "@id": "https://www.w3.org/ns/epub-anno.jsonld",
       "@type": "jsonld:Context"
     }]
   }],
@@ -441,7 +441,7 @@
     "rdfs:isDefinedBy": "https://www.w3.org/TR/epub-ann/#dfn-color",
     "vs:term_status": "stable",
     "mentioned": [{
-      "@id": "https://www.w3.org/ns/epub_anno.jsonld",
+      "@id": "https://www.w3.org/ns/epub-anno.jsonld",
       "@type": "jsonld:Context"
     }]
   }, {
@@ -451,7 +451,7 @@
     "rdfs:isDefinedBy": "https://www.w3.org/TR/epub-ann/#dfn-color",
     "vs:term_status": "stable",
     "mentioned": [{
-      "@id": "https://www.w3.org/ns/epub_anno.jsonld",
+      "@id": "https://www.w3.org/ns/epub-anno.jsonld",
       "@type": "jsonld:Context"
     }]
   }, {
@@ -461,7 +461,7 @@
     "rdfs:isDefinedBy": "https://www.w3.org/TR/epub-ann/#dfn-color",
     "vs:term_status": "stable",
     "mentioned": [{
-      "@id": "https://www.w3.org/ns/epub_anno.jsonld",
+      "@id": "https://www.w3.org/ns/epub-anno.jsonld",
       "@type": "jsonld:Context"
     }]
   }, {
@@ -471,7 +471,7 @@
     "rdfs:isDefinedBy": "https://www.w3.org/TR/epub-ann/#dfn-color",
     "vs:term_status": "stable",
     "mentioned": [{
-      "@id": "https://www.w3.org/ns/epub_anno.jsonld",
+      "@id": "https://www.w3.org/ns/epub-anno.jsonld",
       "@type": "jsonld:Context"
     }]
   }, {
@@ -481,7 +481,7 @@
     "rdfs:isDefinedBy": "https://www.w3.org/TR/epub-ann/#dfn-color",
     "vs:term_status": "stable",
     "mentioned": [{
-      "@id": "https://www.w3.org/ns/epub_anno.jsonld",
+      "@id": "https://www.w3.org/ns/epub-anno.jsonld",
       "@type": "jsonld:Context"
     }]
   }, {
@@ -491,7 +491,7 @@
     "rdfs:isDefinedBy": "https://www.w3.org/TR/epub-ann/#dfn-color",
     "vs:term_status": "stable",
     "mentioned": [{
-      "@id": "https://www.w3.org/ns/epub_anno.jsonld",
+      "@id": "https://www.w3.org/ns/epub-anno.jsonld",
       "@type": "jsonld:Context"
     }]
   }, {
@@ -501,7 +501,7 @@
     "rdfs:isDefinedBy": "https://www.w3.org/TR/epub-ann/#dfn-highlight",
     "vs:term_status": "stable",
     "mentioned": [{
-      "@id": "https://www.w3.org/ns/epub_anno.jsonld",
+      "@id": "https://www.w3.org/ns/epub-anno.jsonld",
       "@type": "jsonld:Context"
     }]
   }, {
@@ -511,7 +511,7 @@
     "rdfs:isDefinedBy": "https://www.w3.org/TR/epub-ann/#dfn-highlight",
     "vs:term_status": "stable",
     "mentioned": [{
-      "@id": "https://www.w3.org/ns/epub_anno.jsonld",
+      "@id": "https://www.w3.org/ns/epub-anno.jsonld",
       "@type": "jsonld:Context"
     }]
   }, {
@@ -521,7 +521,7 @@
     "rdfs:isDefinedBy": "https://www.w3.org/TR/epub-ann/#dfn-highlight",
     "vs:term_status": "stable",
     "mentioned": [{
-      "@id": "https://www.w3.org/ns/epub_anno.jsonld",
+      "@id": "https://www.w3.org/ns/epub-anno.jsonld",
       "@type": "jsonld:Context"
     }]
   }, {
@@ -531,7 +531,7 @@
     "rdfs:isDefinedBy": "https://www.w3.org/TR/epub-ann/#dfn-highlight",
     "vs:term_status": "stable",
     "mentioned": [{
-      "@id": "https://www.w3.org/ns/epub_anno.jsonld",
+      "@id": "https://www.w3.org/ns/epub-anno.jsonld",
       "@type": "jsonld:Context"
     }]
   }]

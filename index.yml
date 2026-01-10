@@ -12,7 +12,7 @@ json_ld:
 vocab:
     - id: ea
       value: http://www.w3.org/ns/ea#
-      context: https://www.w3.org/ns/epub_anno.jsonld
+      context: https://www.w3.org/ns/epub-anno.jsonld
 
 prefix:
     - id: oa
@@ -36,7 +36,7 @@ ontology:
 
 class:
     - id: About
-      label: Information about the publication
+      label: Information about the EPUB publication
       comment: (Externally defined) Dublin Core terms are used with this class, retaining the prefixes (to be in line with the EPUB Package Document)
       defined_by: https://www.w3.org/TR/epub-ann/#dfn-about-object
 
